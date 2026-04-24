@@ -2,10 +2,8 @@ import { Pool } from "pg";
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl:
-    process.env.NODE_ENV === "production"
-      ? { rejectUnauthorized: false }
-      : false,
+  // Disable SSL for local development and Docker
+  ssl: process.env.DATABASE_SSL === "true" ? { rejectUnauthorized: false } : false,
   max: 10,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 5000,

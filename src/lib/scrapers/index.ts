@@ -29,9 +29,9 @@ export async function syncAllSources(): Promise<{
 
       for (const q of questions) {
         try {
-          // Check if question already exists
+          // Check if question already exists by question text only
           const existing = await db.questions.findFirst({
-            OR: [{ question: q.question }, { sourceUrl: q.sourceUrl }],
+            OR: [{ question: q.question }],
           });
 
           if (existing) {

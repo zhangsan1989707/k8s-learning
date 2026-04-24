@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# K8s Learning
 
-## Getting Started
+交互式 Kubernetes 学习平台，通过动手实验和真实集群连接来掌握 K8s 技能。
 
-First, run the development server:
+## 功能特性
+
+### 学习路径
+- **初学者路径**: K8s概述、Pod基础、Deployment基础、Service基础、Namespace基础
+- **进阶路径**: ConfigMap/Secret、Ingress、HPA、PV/PVC
+- **高级路径**: Operator开发、网络策略、RBAC、安全上下文、资源配额
+
+### 面试题库
+- 涵盖基础概念、架构组件、网络、存储、生产实践、安全等分类
+- 支持按分类和难度筛选
+- 内置 30+ 道精选面试题
+- 支持从公开数据源同步更多题目
+
+### Playground
+- **Kubeconfig 管理**: 支持粘贴、上传文件、检测本地 `~/.kube/config`
+- **真实集群连接**: 连接本地 minikube/kind 集群
+- **交互式终端**: 命令历史（上下箭头）、Ctrl+C 中断
+- **YAML 编辑器**: Monaco Editor 可视化编辑
+- **一键部署**: 将 YAML 配置部署到连接集群
+
+### 生产案例
+- 8个生产级配置案例：Nginx部署、MySQL有状态部署、Ingress HTTPS、HPA自动扩缩容、ConfigMap/Secret配置、网络策略、Pod中断预算、定时任务
+
+## 技术栈
+
+- **框架**: Next.js 16 (App Router)
+- **UI**: Tailwind CSS
+- **终端**: xterm.js
+- **代码编辑器**: Monaco Editor
+- **容器**: Docker + Docker Compose
+
+## 快速开始
+
+### 环境要求
+
+- Node.js 18+
+- Docker 和 Docker Compose
+- kubectl (用于 Playground 连接集群)
+
+### 安装
 
 ```bash
+# 克隆仓库
+git clone <your-repo-url>
+cd k8s-learning
+
+# 安装依赖
+npm install
+
+# 启动开发服务器
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+访问 http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Docker 部署
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 构建并启动
+docker-compose up -d
 
-## Learn More
+# 访问 http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 项目结构
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── api/
+│   │   ├── k8s/              # K8s 相关 API
+│   │   ├── questions/         # 面试题 CRUD API
+│   │   └── sync/             # 数据同步 API
+│   ├── cases/                # 生产案例页面
+│   ├── interview/            # 面试题页面
+│   ├── learn/               # 学习路径
+│   │   ├── beginner/         # 初学者路径
+│   │   ├── intermediate/     # 进阶路径
+│   │   └── advanced/         # 高级路径
+│   └── playground/            # Playground 页面
+├── components/
+│   ├── editor/               # YAML 编辑器
+│   └── terminal/             # K8s 终端
+└── lib/
+    ├── db/                    # 数据存储
+    ├── scrapers/              # 数据爬虫
+    └── tutorials/             # 教程内容
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## API 路由
 
-## Deploy on Vercel
+| 路由 | 说明 |
+|------|------|
+| `GET /api/questions` | 获取面试题列表 |
+| `POST /api/questions` | 添加面试题 |
+| `POST /api/sync` | 同步外部数据 |
+| `POST /api/k8s/exec` | 执行 kubectl 命令 |
+| `POST /api/k8s/deploy` | 部署 YAML |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 开发
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev      # 开发服务器
+npm run build    # 构建生产版本
+npm run lint     # 代码检查
+```
+
+## 数据来源
+
+面试题数据主要来自 [devops-exercises](https://github.com/bregman-arie/devops-exercises) 项目。
+
+## License
+
+MIT

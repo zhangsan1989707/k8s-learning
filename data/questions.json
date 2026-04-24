@@ -223,5 +223,1285 @@
     "createdAt": "2026-04-24T04:53:22.980Z",
     "updatedAt": "2026-04-24T04:53:22.980Z",
     "syncAt": null
+  },
+  {
+    "source": "github",
+    "question": "# 42 Important Kubernetes Interview Questions in 2026",
+    "answer": "Kubernetes Network Policies regulate traffic within the cluster, boosting both security and performance. Core Elements - Network Policy: The rule-set defining traffic behavior. - Selector: Identifies pods to which the policy applies. - Gateways / Egress Points: Regulate outgoing traffic. - Ingress Definition: Specifies allowed inbound connections. Policy Types - Allow: Permits specific traffic types. - Deny: Blocks specified traffic types. - Blacklist / Whitelist: Contradictory to Allow & Deny, they either block everything except what's listed (Whitelist) or block specific things except what's listed (Blacklist). Policy Language Different Kubernetes tools and implementations have their own way of writing policies. - Cilium: Uses rich BPF rule expression to define advanced rules and manage application-level policies. - Calico: Adds its security and network features, with a powerful policy engine allowing you to express complex network rules. Best Practices 1. Start Simple: Build policies gradually, testing after each rule addition. 2. Documentation: Detailed policy design and updates encourage consistent and secure practices. 3. Review Regularly: Network requirements can change, necessitating policy updates. 4. Testing: Use tools like `kube-router` to verify policy application. What It Means for Businesses By implementing Network Policies, businesses can ensure more secure and efficient internal Kubernetes communication, meeting compliance and governance requirements. <br> Explore all 42 answers here 👉 [Devinterview.io - Kubernetes](https://devinterview.io/questions/software-architecture-and-system-design/kubernetes-interview-questions) <br> <a href=\"https://devinterview.io/questions/software-architecture-and-system-design/\"> <img src=\"https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/github-blog-img%2Fsoftware-architecture-and-system-design-github-img.jpg?alt=media&token=521fd2a9-0d56-49c0-a723-9bd6ca081893\" alt=\"software-architecture-and-system-design\" width=\"100%\"> </a> </p>",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:09.443Z",
+    "id": "f7d6e3ee1311f509",
+    "createdAt": "2026-04-24T06:11:20.772Z",
+    "updatedAt": "2026-04-24T06:47:09.443Z"
+  },
+  {
+    "source": "github",
+    "question": "介绍一下Kubernetes？",
+    "answer": "Kubernetes是一个全新的基于容器技术的分布式系统支撑平台。是Google开源的容器集群管理系统。在Docker技术的基础上，为容器化的应用提供部署运行、资源调度、服务发现和动态伸缩等一系列完整功能，提高了大规模容器集群管理的便捷性。并且具有完备的集群管理能力，多层次的安全防护和准入机制、多租户应用支撑能力、透明的服务注册和发现机制、内建智能负载均衡器、强大的故障发现和自我修复能力、服务滚动升级和在线扩容能力、可扩展的资源自动调度机制以及多粒度的资源配额管理能力。",
+    "category": "Kubernetes",
+    "difficulty": "初级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.324Z",
+    "id": "542fe37669218d31",
+    "createdAt": "2026-04-24T06:15:39.134Z",
+    "updatedAt": "2026-04-24T06:47:57.324Z"
+  },
+  {
+    "source": "github",
+    "question": "What is _Kubernetes_, and why is it used for container _orchestration_?",
+    "answer": "Kubernetes provides a robust platform for deploying, scaling, and managing containerized applications. Unlike Docker Swarm, which is specifically designed for Docker containers, Kubernetes is container-agnostic, supporting runtimes like Containerd and CRI-O. Moreover, Kubernetes is more feature-rich, offering features such as service discovery, rolling updates, and automated scaling. Key Kubernetes Features Pod Management - Why: Pods are the smallest deployable units in Kubernetes, encapsulating one or more containers. This brings flexibility and makes it effortless to manage multi-container applications. - Core Concepts: Deployments, Replication Controllers, and ReplicaSets ensure that a specific number of replicas for the Pod are running at all times. - Code Example: In YAML, a Pod with two containers might look like: ```yaml apiVersion: v1 kind: Pod metadata: name: pod-with-two-containers spec: containers: - name: container1 image: image1 - name: container2 image: image2 ``` Networking - Why: Kubernetes assigns each Pod its unique IP address, ensuring communication across Pods. It also abstracts the underlying network, simplifying the deployment process. - Core Concepts: Services, Ingress, and Network Policies provide different levels of network abstraction and control. Persistent Storage - Why: It offers a straightforward, standardized way of managing storage systems, making it a great solution for databases and stateful applications. - Core Concepts: Storage classes, Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) abstract the underlying storage technologies and provide dynamic provisioning and access control. Cluster Scaling - Why: Kubernetes can automate the scaling of Pods based on CPU or memory usage, ensuring optimal resource allocation and performance. - Core Concepts: Horizontal Pod Autoscaler (HPA) dynamically scales the number of replica Pods in a Deployment, ReplicaSet, or StatefulSet. Cluster autoscaler scales underlying infrastructure, including nodes. Resource Management - Why: Kubernetes makes it easy to manage and allocate resources (CPU and memory) to different components of an application, ensuring that no single component degrades overall performance. - Core Concepts: Resource Quotas and Limit Ranges help define the upper limits of resources that each object can consume. Batch Execution - Why: For quick, efficient tasks, Kubernetes provides a Job and a CronJob API to manage such tasks. - Core Concepts: Jobs and CronJobs manage the execution of Pods over time, guaranteeing the desired state. Clusters Maintenance - Why: Kubernetes enables non-disruptive updates, ensuring cluster maintenance without downtime. - Core Concepts: Rolling updates for Deployments and Pod disruption budgets during updates help maintain availability while updating. Health Checks - Why: Kubernetes actively monitors and checks the health of containers and workloads, ensuring quick remediation in case of issues. - Core Components: Liveness and Readiness probes are used to determine the health of container-based applications. Kubernetes restarts containers that don't pass liveness probes and stops routing traffic to those that don't pass readiness probes. Secrets Management - Why: Kubernetes provides a secure way to manage sensitive information, such as passwords, OAuth tokens, and SSH keys. - Core Components: Secrets and ConfigMaps are different types of objects used to centrally manage application configuration and secrets. Automated Deployments - Why: Kubernetes facilitates gradual, controlled updates of applications, reducing the risk of downtime or failure during deployment. - Core Concepts: Deployments, with their built-in features like rolling updates and rollbacks, provide a mechanism for achieving zero-downtime deployments. Metadata and Labels - Why: Labels help organize and select and workloads in a Kubernetes cluster, and annotations can attach arbitrary non-identifying information to objects. - Core Components: Labels are key/value pairs that are attached to Kubernetes resources to give them identifying attributes. Annotations are used to attach arbitrary non-identifying metadata to objects. Mechanism to Extend Functionality - Why: Kubernetes is designed to be extensible, allowing developers to write and register custom controllers or operators that can manage any object. Multi-Cluster Deployment Kubernetes provides capabilities for effective multi-cluster deployment and scaling, be it within a single cloud provider or across hybrid and multi-cloud environments. With tools like Kubefed, you can define and manage resource configurations that are shared across clusters. Cost and Productivity Considerations Kubernetes also offers significant cost efficiencies. It optimizes resource utilization, utilizing CPU and memory more effectively, reducing the need for over-provisioning. On the productivity front, Kubernetes streamlines the development and deployment pipelines, facilitating agility and enabling rapid, consistent updates across different environments. Why Choose Kubernetes for Orchestration? - Portability: Kubernetes is portable, running both on-premises and in the cloud. - Scalability: It's proven its mettle in managing massive container workloads efficiently, adapting to varying resource demands and scheduling tasks effectively. - Community and Ecosystem: A vast and active community contributes to the platform, ensuring it stays innovative and adaptable to evolving business needs. - Extensive Feature Set: Kubernetes offers rich capabilities, making it suitable for diverse deployment and operational requirements. - Reliability and Fault Tolerance: From self-healing capabilities to rolling updates, it provides mechanisms for high availability and resilience. - Automation and Visibility: It simplifies operational tasks and offers insights into the state of the system. - Security and Compliance: It provides role-based access control, network policies, and other security measures to meet compliance standards. Master-Node Architecture Kubernetes follows a master-node architecture, divided into: - Master Node: Manages the state and activities of the cluster. It contains essential components like the API server, scheduler, and controller manager. - API Server: Acts as the entry point for all API interactions. - Scheduler: Assigns workloads to nodes based on resource availability and specific requirements. - Controller Manager: Maintains the desired state, handling tasks like node management and endpoint creation. - etcd: The distributed key-value store that persists cluster state. - Worker Nodes: Also called minions, these are virtual or physical machines that run the actual workloads in the form of containers. Each worker node runs various Kubernetes components like Kubelet, Kube Proxy, and a container runtime (e.g., Docker, containerd). Need for Orchestration Containers, while providing isolation and reproducibility, need a way to be managed, scaled, updated, and networked. This is where Orchestration platforms like Kubernetes come in, providing a management layer for your containers, ensuring that they all work together in harmony. <br>",
+    "category": "基础概念",
+    "difficulty": "初级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.306Z",
+    "id": "48952236cec0745f",
+    "createdAt": "2026-04-24T06:47:57.306Z",
+    "updatedAt": "2026-04-24T06:47:57.306Z"
+  },
+  {
+    "source": "github",
+    "question": "Describe the roles of _master_ and _worker nodes_ in the _Kubernetes_ architecture.",
+    "answer": "In a Kubernetes cluster, each type of node has a distinct responsibility: - Master Node: - Also known as Control Plane Node, it manages the entire cluster. - Houses the API Server, Controller Manager, and Scheduler, primarily responsible for cluster orchestration. - It initializes and configures workloads, spans across several Master nodes to ensure high availability, and typically doesn't run user applications. - Also, the etcd database is often hosted separately or as a clustered data store. - Worker Node: - Also called Minion or Ingress Node. - Serves as the compute layer of the cluster and by design hosts the containers that make up the actual workloads ('pods') or app services. - Acts as a bridge to offload the networking and monitoring overhead from the Master node and to ensure the security of the cluster. - Other Nodes: - Special-purpose nodes or clusters may introduce other node types, such as dedicated storage or networking elements. However, these are not universal and won't be found in most standard Kubernetes setups. It is essential to understand the distinct roles of these node types for effectively managing a Kubernetes cluster. Kubernetes Cluster Overview - Nodes: Physical or virtual servers that form the worker or master nodes. - May also include additional specialized nodes for storage, networking, or other purposes. - Kubelet: An agent installed on each worker node and helps the node connect with the main control panel. It takes `PodSpecs`, which define a group of containers that require to be coordinated, and guarantees that the identified containers are running and healthy. - Kube-Proxy: A network agent on each node for managing network connectivity to local deployments. - Control Panel: A collection of critical processes steamy on a cluster's master nodes to regulate the cluster management and API server. - API Server: Resembles the front door to the cluster. All external communications cease here. - Scheduler: Picks the best node for a program to run on. - Controller manager: Monitors the present state of the cluster and attempts to bring it to the desired state. - External Cloud: Offers the physical hardware where your cluster will run. <br>",
+    "category": "Kubernetes",
+    "difficulty": "高级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.307Z",
+    "id": "297a22a6fe4e575a",
+    "createdAt": "2026-04-24T06:47:57.307Z",
+    "updatedAt": "2026-04-24T06:47:57.307Z"
+  },
+  {
+    "source": "github",
+    "question": "How do _Pods_ facilitate the management of _containers_ in _Kubernetes_?",
+    "answer": "In Kubernetes, a Pod serves as the smallest deployable unit, generally encapsulating a single application. The primary function of the Pod is to provide a cohesive context for executing one or more containers. Key Characteristics - Context Sharing: Containers within the same Pod share a common network namespace, hostname, and storage volumes, optimizing their interactions. - Logical Bundling: Designates one of the containers as the primary application with the remaining containers often providing supplementary services or shared resources. - Atomicity: Containers in a single Pod are scheduled onto the same node and execute in close proximity. This ensures that they are either all running or all terminated. Core Functionalities 1. Networking: Containers within the same Pod are reachable via `localhost` and have a single, shared IP address. This design simplifies internal communication. 2. Resource Sharing: All containers in a Pod have identical resource-sharing provisions, ensuring that they have the same CPU and memory limits. 3. Storage Volumes: Shared volumes can be mounted across all containers within a Pod to promote data sharing among its constituent containers. 4. Lifecycle Coordination: Defines the life cycle for all containers in a Pod, such that if one container exits, the termination affects the entire Pod, consistent with the atomic execution concept. Core Relationship with Workloads - Dedicated Workloads: Pods that host a single container are often used for self-sufficient, standalone tasks. These tasks have specific resource requirements and are designed to run independently. - Coordinated Workloads: Pods with multiple containers emphasize complementarity. These containers often tackle related tasks, such as syncing data, logging, or serving as administrative dashboards. YAML Configuration Here is the YAML configuration: ```yaml apiVersion: v1 kind: Pod metadata: name: my-pod spec: containers: - name: primary-container image: primary-image - name: secondary-container image: secondary-image volumes: - name: shared-data emptyDir: {} ``` In this instance, `primary-container` is the main application container, and `secondary-container` is the auxiliary container. Both containers share the same storage volume `shared-data`. Management Tools Popular dev-ops tools, like Helm, provide higher-level abstractions for managing Kubernetes resources, such as the Pod. This simplifies deployment and scaling tasks, allowing for centralized configuration management. Benefits of Pod: - Resource Efficiency: Pods refrain from having resource duplication. Each constituent container operates within the same resource environment, reducing wastage. - Lifecycle Consistency: All containers in a Pod are deployed, scaled, and managed as a single unit, promoting consistency in their execution. <br>",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.308Z",
+    "id": "0f40a1adbcd83445",
+    "createdAt": "2026-04-24T06:47:57.308Z",
+    "updatedAt": "2026-04-24T06:47:57.308Z"
+  },
+  {
+    "source": "github",
+    "question": "What types of _Services_ exist in _Kubernetes_, and how do they facilitate _pod communication_?",
+    "answer": "Kubernetes offers different types of services for flexible & reliable communication between pods. Let's explore each. Service Types ClusterIP - Role: Internal communication within the cluster. - How it Works: Pods communicate with the Service's fixed IP and port. Service distributes traffic among pods based on defined selector. - Practical Use: Ideal for back-end services where direct access from external sources isn't necessary. NodePort - Role: Exposes the Service on a static port on each node of the cluster. - How it Works: In addition to the ClusterIP functionality, it also opens a specific port on each node. This allows external traffic to reach the service through the node's IP address and the chosen port. - Practical Use: Useful for reaching the service from outside the cluster during development and testing phases. LoadBalancer - Role: Makes the Service externally accessible through a cloud provider's load balancer. - How it Works: In addition to NodePort, this service provides a cloud load balancer's IP address, which then distributes traffic across Service Pods. - Practical Use: Especially useful in cloud settings for a public-facing, production deployment. ExternalName - Role: Maps the Service to an external service using a DNS name. - How it Works: When the Service is accessed, Kubernetes points it directly to the external (DNS) name provided. - Practical Use: Useful if you want environments to have a uniform way of accessing external services and don't want to use environment-specific methods like altering /etc/hosts. Headless - Role: Disables the cluster IP, allowing direct access to the Pods selected by the Service. - How it Works: This type of Service doesn't allocate a virtual IP (ClusterIP) to the Service, letting the clients directly access the Pods. It returns the individual Pod IPs. - Practical Use: Useful for specialized use cases when direct access to Pod IPs is necessary. Selectors and Endpoints For many types of Service, the selector identifies which Pods to include in the service. The matching Pods are called endpoints for the Service. Kubernetes retrieves these endpoints from the API server, and the Service kube-proxy sets up appropriate iptables rules (or equivalent on other platforms or using `ipvs`) to match the Service behavior. ```yaml apiVersion: v1 kind: Service metadata: name: my-service spec: selector: app: MyApp type: Frontend ports: - protocol: TCP port: 80 targetPort: 9376 ``` Here, the Service 'my-service' selects all the Pods with labels `app=MyApp` and `type=Frontend` and forwards the traffic on the port `80` to the `targetPort` `9376`. <br>",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.310Z",
+    "id": "61476568f7688b8b",
+    "createdAt": "2026-04-24T06:47:57.310Z",
+    "updatedAt": "2026-04-24T06:47:57.310Z"
+  },
+  {
+    "source": "github",
+    "question": "Explain the functionality of _Namespaces_ in _Kubernetes_.",
+    "answer": "Kubernetes uses Namespaces to create separate virtual clusters on top of a physical cluster. This enables multi-tenancy, providing a powerful way to manage diverse workloads efficiently. Key Features - Resource Isolation: Namespaces offer a level of separation, ensuring resources like pods, services, and persistent volumes are distinct to a Namespace. - Network Isolation: Each Namespace has its IP, enabling isolated network policies and container-to-container communication. Use-Cases Development, Testing, and Staging - Multi-Environment Segregation: Namespaces can delineate development, testing, and staging environments. Multi-Team and Multi-Project Support - Multi-Tenancy: Namespaces allow multiple teams to work independently in the same cluster. - Client Isolation: Service objects in a Namespace are only visible to clients in the same Namespace, providing clear-cut network boundaries. Security and Policy Enforcement - Resource Quotas: Namespaces help establish quotas to govern resource consumption for projects or teams. - Limit Ranges: Namespaces can define minimum and maximum limitations on resource memory and CPU for each container. Network Segmentation and IP Management - Ingress Configuration: Namespaces assist in external-to-internal network mapping and traffic routing. - IP Management: Each Namespace can have distinct IP ranges to uniquely identify services and pods. <br>",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.311Z",
+    "id": "2edff134e9b0a35f",
+    "createdAt": "2026-04-24T06:47:57.311Z",
+    "updatedAt": "2026-04-24T06:47:57.311Z"
+  },
+  {
+    "source": "github",
+    "question": "Differentiate between _Deployments_, _StatefulSets_, and _DaemonSets_.",
+    "answer": "Kubernetes offers various abstractions to manage containerized applications according to specific operational needs. Deployments, StatefulSets, and DaemonSets are all essential controllers in this regard. Key Distinctions - Deployments are suitable for stateless, replicated applications, and mainly focus on the management of pods. - StatefulSets are designed for stateful applications requiring stable, unique network identities and persistent storage. - DaemonSets are for running agents on each node for system-level tasks. Deployments - State: Stateless These are ideal for microservices that do not store data and can be horizontally scaled. - Pod Management: Managing a replica set of pods. - Inter-Pod Communication: Achieved through services. - Storage: Volatile. Data does not persist beyond the pod's lifecycle. StatefulSets - State: Stateful Suitable for applications that store persistent data, control startup order, and require unique network identities. - Pod Management: Provides sticky identity, persistence, and orderly deployment and scaling. - Inter-Pod Communication: Managed through stable network identities. - Storage: Provides mechanisms for persistent storage. DaemonSets - State: Node-Focused Ideal for workloads with demon-like functionalities that are needed on each node (e.g. log collection, monitoring). - Pod Management: Ensures one pod per node. - Inter-Pod Communication: Not a primary concern. - Storage: Depends on the specific use case. <br>",
+    "category": "架构组件",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.312Z",
+    "id": "c8771e4fe3425db9",
+    "createdAt": "2026-04-24T06:47:57.312Z",
+    "updatedAt": "2026-04-24T06:47:57.312Z"
+  },
+  {
+    "source": "github",
+    "question": "How do _ReplicaSets_ ensure _pod availability_?",
+    "answer": "Kubernetes provides robust mechanisms, such as ReplicaSets, to ensure consistent pod availability. In the context of failure scenarios or manual scaling, it is essential to understand how ReplicaSets guarantee pods are up and running according to the defined configuration. Key Components - Pod Template: It specifies the required state for individual pods within the configured ReplicaSet. - Controller-Reconciler Loop: This Control Plane component continuously monitors the cluster, compares the observed state against the desired state specified in the ReplicaSet, and takes corrective actions accordingly. If there's a mismatch, this loop is responsible for making the necessary adjustments. - Replica Level: Each ReplicaSet specifies the desired number of replicas. It's the responsibility of the Controller-Reconciler Loop to ensure that this count is maintained. Action Workflow Initial Deployment During the initial setup, the ReplicaSet creates the specified number of pods and ensures they are in an `Up` state. Observation and Feedback Loop The Controller-Reconciler continuously monitors pods. If the observed state deviates from the Pod Template, corrective action is initiated to bring the system back to the specified configuration. - Failure Detection: If a pod is unavailable or not matching the defined template, the Controller-Reconciler identifies the anomaly in the system. - Self-Healing: The Controller-Reconciler instantiates new pods, replaces unhealthy ones, or ensures the required number of pods is available, maintaining the ReplicaSet's defined state. Horizontal Scaling The ReplicaSet allows for dynamic scaling of pods in response to changes in demand. - Auto-Scaling: The Controller-Reconciler automatically scales the number of pods to match the configured thresholds or metrics. - Manual Scaling: Administrators can manually adjust the number of replicas. Code Example: Availability Reporting System Kubernetes YAML: ```yaml apiVersion: apps/v1 kind: ReplicaSet metadata: name: av-replicaset labels: tier: frontend spec: replicas: 2 selector: matchLabels: app: availability template: metadata: labels: app: availability spec: containers: - name: av-reporter image: av-reporter:v1 ``` In this example, we ensure that two pods of the `av-reporter:v1` image are continuously available, serving as a live status reporter for an availability system. <br>",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.313Z",
+    "id": "9a6e3f7a5a97bbfe",
+    "createdAt": "2026-04-24T06:47:57.313Z",
+    "updatedAt": "2026-04-24T06:47:57.313Z"
+  },
+  {
+    "source": "github",
+    "question": "What are _Jobs_ in _Kubernetes_, and when is it suitable to use them?",
+    "answer": "In Kubernetes, a job object is used to run a specific task to completion or a certain number of times. It's ideal for tasks that are rather short and encapsulate work that isn't part of the ongoing application processes. Key Characteristics of Jobs - Pod Management: Jobs create one or more Pods and manage their lifecycle, ensuring successful completion. - Completions: You can specify the number of successful completions, especially useful for batch tasks. - Parallelism: Control how many Pods run concurrently. This feature allows for efficient management of resources. - Pod Cleanup: After the task has been completed, Jobs ensure that related Pods are terminated. They might also garbage collect completed Jobs, depending on your settings. - Auto-Restart: Jobs do not restart by default if successful. They can be configured to restart on failure. The Three Main Job Types - Serial Jobs: Ensure tasks are completed exactly once. - Parallel Jobs: Suitable for tasks where some level of parallel processing can be beneficial for performance. - Work Queues: Suitable for tasks where a specific number of parallel tasks is defined and managed. Scenario-Specific Best Fits 1. Data Processing: For processing a batch of records or data sets. For example, a tech company might use it in a data pipeline to process thousands of records in chunks. 2. Clean-up Tasks: For periodic clean-up, such as an e-commerce site cleaning up expired user data. 3. Software Compilation: Useful in CI/CD pipelines to parallelize software builds. 4. Cron Jobs: For scheduling recurring batch processes, such as taking database backups nightly. 5. Metering or Accounting: Useful for counting or tallying records, possibly in near-real-time. 6. Health Checks: Occasionally, when more sophisticated health checks are needed, for tasks perhaps beyond the remit of a Liveness and Readiness check. 7. Resource Acquisition: For occasional resource acquisition tasks – imagine a scenario where a system occasionally scales on demand and requires a specific number of resources at run-time. <br>",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.314Z",
+    "id": "5071d17871f901e8",
+    "createdAt": "2026-04-24T06:47:57.314Z",
+    "updatedAt": "2026-04-24T06:47:57.314Z"
+  },
+  {
+    "source": "github",
+    "question": "How do _Labels_ and _Selectors_ work together in _Kubernetes_?",
+    "answer": "In Kubernetes, Labels are key-value pairs attached to resources, and Selectors are the tools used to manage and interact with these labeled resources. Why Use Labels and Selectors? - Efficient Grouping: Labels group resources, simplifying management and configuration. - Decoupling: Resources are decoupled from consuming services through selectors, making management flexible and robust. - Queries: Selectors filter resources by matching label sets, enabling focused actions. Core Concepts Labels Kubernetes resources, such as Pods or Services, are associated with labels to indicate attributes. A `spec` section can include labels during resource definition. Example labels: ```yaml metadata: labels: environment: prod tier: frontend ``` Resources Select: - All resources without any specific labels are significant when not tagged. - Specific Resources: Indicate labels to MATCH (AND condition) for resource retrieval. Example, to find all \"frontend\" Pods in the \"prod\" environment: ```yaml matchLabels: environment: prod tier: frontend ``` Resources that Supports Labels and Selectors 1. Services: Use to route and expose network traffic. 2. ReplicaSets/Horizontally Scaling Controllers: Helps in load balancing, scaling, and ensuring availability. 3. DaemonSets/Node Level Controllers: For system-level operations on all or specific nodes. 4. Deployments/Rolling Updates and Rollbacks: Manages dynamic scaling and maintains consistent state. 5. Jobs/CronJobs: Facilitates task scheduling and execution. 6. StatefulSets/Persistent Storage: Ensures stable and unique network identities for stateful applications. 7. Pods/Microservices: Basic building blocks for containerized applications. 8. Ingress: Routes external HTTP and HTTPS to Services. 9. Network Policies: Defines network access policies. 10. Endpoints: Populates the subset of backend Pods for a Service. 11. PersistentVolumeClaims: Dynamic storage provisioning and management. 12. Virtual Machines Deployment: Uses for virtual machines creation and management. 13. CronJobs: Facilitates job scheduling. 14. PodDisruptionBudgets: Ensures efficient resource allocation during disruptions. 15. ServiceMonitor/EndpointSlice: Specific to monitoring and service discovery. <br>",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.315Z",
+    "id": "ff8afbedbabd97f1",
+    "createdAt": "2026-04-24T06:47:57.315Z",
+    "updatedAt": "2026-04-24T06:47:57.315Z"
+  },
+  {
+    "source": "github",
+    "question": "What would you consider when performing a _rolling update_ in _Kubernetes_?",
+    "answer": "In Kubernetes, a rolling update ensures your application is updated without downtime. This process carefully replaces old pods with new ones, employing a health check mechanism for a smooth transition. A rolling update involves several components, including the Replica Set, the Update Control Loop, the Pod Update Process, and Health Checking of pods. Here are their details: Upgrade Process Flow 1. Replica Set: Initiates the update by altering the pods it supervises. 2. Pod Lifecycle: Old pods gradually terminate while new ones start up according to the update strategy, such as `maxUnavailable` and `maxSurge`. 3. Readiness Probes: Each new pod is verified against its readiness to serve traffic, ensuring the application is live and responsive before the transition. 4. Liveness Probes: These checks confirm the stability of new pods. If a pod fails a liveness probe, it's terminated and replaced with a new version, maintaining application reliability. 5. Rolling Update Status `status`: Informs about the progress of the update. 6. Annotations from Provider: Kubernetes providers may supply additional insights, such as `spec.rollingUpdate.strategy`. Code Example: Rolling Update Process Here is the Kubernetes YAML code: ```yaml apiVersion: apps/v1 kind: Deployment metadata: name: my-app spec: replicas: 3 strategy: rollingUpdate: maxUnavailable: 2 maxSurge: 1 type: RollingUpdate selector: matchLabels: app: my-app template: metadata: labels: app: my-app spec: containers: - name: my-app-container image: my-app:v2 readinessProbe: httpGet: path: /ready port: 8080 livenessProbe: httpGet: path: /live port: 8080 ``` <br>",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.316Z",
+    "id": "0575c8861333298e",
+    "createdAt": "2026-04-24T06:47:57.316Z",
+    "updatedAt": "2026-04-24T06:47:57.316Z"
+  },
+  {
+    "source": "github",
+    "question": "How do _Services_ route traffic to _pods_ in _Kubernetes_?",
+    "answer": "In Kubernetes, Services serve as an abstraction layer, enabling consistent access to Pods. Traffic is routed to Pods primarily via Selectors and Endpoints. Label Selectors - Purpose: Establish traffic endpoints based on matching labels. - Workflow: Pods are labelled, and Services are configured to match these labels. Upon connectivity, the Service pairs the request to Pods having corresponding labels. - Configuration: Defined in the Service configuration file. Endpoints - Dynamic Mapping: Enables fine-grained control over which Pods receive traffic. - Workflow: Automatically managed and updated. When Pods are created or terminated, corresponding Endpoints are adjusted to ensure traffic flow continuity. Routing Modes 1. ClusterIP: The default behavior, where each Service is assigned a stable internal IP, accessible only within the cluster. 2. NodePort: Exposes the Service on each Node's IP at a specific port, allowing external access. 3. LoadBalancer: Provisioned by an external cloud provider, creating a load balancer for accessing the Service from outside the cluster. 4. ExternalName: Maps a Service to a DNS name, effectively making the Service accessible from inside the cluster using that DNS name. Session Affinity - Purpose: Grants control over the duration for which subsequent requests from the same client are sent to the same Pod. - Measured Using Cookies: When set to `ClientIP`, the user's IP address is used to direct future requests to the same Pod. Using `None` ensures that each request is independently routed. Service Types in code and YAML Kubernetes YAML ```yaml apiVersion: v1 kind: Service metadata: name: my-service spec: selector: app: MyApp ports: - protocol: TCP port: 80 targetPort: 9376 type: NodePort ``` Code Example: Select All Pods with App: MyApp Label Kubernetes Service: ```yaml apiVersion: v1 kind: Service metadata: name: my-service spec: selector: app: MyApp ports: - name: http protocol: TCP port: 80 targetPort: 9376 type: LoadBalancer ``` Python code that Accesses the Service: ```python import requests response = requests.get('http://my-service/') print(response.text) ``` <br>",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.317Z",
+    "id": "9fefef0ea6ef0a9e",
+    "createdAt": "2026-04-24T06:47:57.317Z",
+    "updatedAt": "2026-04-24T06:47:57.317Z"
+  },
+  {
+    "source": "github",
+    "question": "Describe the purpose of _Ingress_ and its key components.",
+    "answer": "Ingress is a powerful Kubernetes service that acts as an HTTP and HTTPS load balancer and provides routing for external traffic to services in a cluster. Let's look at its key components: Key Components - Ingress Resource: This is a Kubernetes object that acts as a configuration file for managing external access to services in a cluster. It defines rules and settings for how traffic should be routed. - Ingress Controller: The Ingress Controller is in charge of obeying the Ingress Resource's rules and configuring the load balancer and traffic routing. Most often, the Ingress Controller is implemented through a Kubernetes extension or a third-party tool, like NGINX or Traefik. - Load Balancer: Operating at layer 7 of the OSI model, the Load Balancer directs traffic to available services based on rules. The Ingress Controller configures and manages this Load Balancer on behalf of the cluster. Note: A cloud provider might offer its own Load Balancer, but the Ingress Controller can also use standard cloud provider tools or its own mechanism if the cluster isn't on a cloud platform. - Rules: These are defined within the Ingress Resource and specify how incoming traffic should be handled. Rules typically match a specific path or domain and define the associated backend Kubernetes service. When to Use Ingress Ingress is an ideal fit for clusters needing to route HTTP or HTTPS traffic. It's especially beneficial in microservices architectures, as it centralizes and simplifies access to services. This, in turn, improves security, ease of management, and facilitates traffic optimizations like caching. It should be noted that newer configurations, such as gateway API, offer more extensibility and include features such as traffic splitting and enhanced security measures, which might make them a better choice in certain contexts. <br>",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.318Z",
+    "id": "a70b590c4c55e849",
+    "createdAt": "2026-04-24T06:47:57.318Z",
+    "updatedAt": "2026-04-24T06:47:57.318Z"
+  },
+  {
+    "source": "github",
+    "question": "Explain _Kubernetes DNS_ resolution for _services_.",
+    "answer": "Kubernetes leverages a consistent, centrally managed Domain Name System (DNS) for containers and services, offering ease of discovery and effictive communication within the cluster. Core DNS vs. Kubernetes DNS In early versions of Kubernetes, SkyDNS powered service discovery. However, CoreDNS has succeeded it as the default DNS server. - CoreDNS is more extendable and easier to manage. - Its modular nature means you enable specific features through plugins. DNS Resolution Workflow 1. Nodes and pods use `kube-dns` or `coredns` as their predefined DNS servers. 2. The DNS server typically resides within a Kubernetes cluster and knows all service names and their IP addresses. 3. On receiving a DNS query, the DNS server tracks IP changes and ensures name-to-IP mapping. Example: Query Flow 1. Pod Initiates DNS Request: A pod wants to connect to a service inside or outside the cluster. 2. DNS Query: The pod sends a DNS query via the specified server (K8s or custom). 3. DNS Server: The server processes the query. 4. Query Results: Based on pod's namespace, service name, and domain suffix, the DNS server returns the corresponding IP(s). DNS Requirements in the Cluster - Service Discovery: Pods need to locate services. DNS offers an effective way, abstracting the complexity of directly handling service discovery. - Name Resolution: Pods and other entities use DNS to get a service's IP address. The DNS server ensures efficient updates, so pods always have the most accurate IP. Considerations for Inter-Pod Communication 1. Direct Cluster IP: Services communicate via Cluster IP. 2. Unrestricted or Port-Defined Communication: Use the service type of \"ClusterIP\". 3. Custom Domains: For custom domains, specify appropriate service names so the DNS server properly resolves their IPs. Namespace Segregation Without namespace information, separate services with the same name and different namespaces might be unreachable. Including namespace info ensures accuracy. Key Configuration Parameters - pod / `spec.dnsPolicy`: Set `ClusterFirst` to utilize the default DNS service. - pod / `spec.dnsConfig`: Specify configs for custom DNS. - service : Utilize `spec.clusterIP` for manual IP assignments. This avoids potential IP address reassignment. Inter-Kubernetes Cluster Communication - For multi-cluster communication, several solutions are available, including direct IP endpoint access and Ingress. DNS resolution strategies can consider these factors. Code Example: Access Service from a Pod Here is the Kubernetes YAML configuration: ```yaml apiVersion: v1 kind: Service metadata: name: my-service namespace: test-ns spec: selector: app: MyApp ports: - protocol: TCP port: 80 targetPort: 9376 --- apiVersion: v1 kind: Pod metadata: name: dns-example namespace: test-ns spec: containers: - name: test image: your-image command: [ \"nslookup\", \"my-service\" ] ``` <br>",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.319Z",
+    "id": "c954867f9508b786",
+    "createdAt": "2026-04-24T06:47:57.319Z",
+    "updatedAt": "2026-04-24T06:47:57.319Z"
+  },
+  {
+    "source": "github",
+    "question": "What is the _Container Network Interface (CNI)_, and how does it integrate with _Kubernetes_?",
+    "answer": "The Container Network Interface (CNI) is a standard for connecting containers and pods in Kubernetes with underlying networking hardware. Integrating with Kubernetes Containers within a Pod share network namespaces, making inter-container communication straightforward. However, Pods require network isolation, which CNI providers, like Calico, address. Kubernetes initiates and manages the CNI connectivity process as follows: 1. Network Attachment Definitions (NADs): Kubernetes 1.18 and later supports a custom resource called Network Attachment Definitions. This allows operators to specify that a Pod should have a particular network interface. 2. Multus CNI: This open-source CNI plugin enables Kubernetes Pods to have multiple network interfaces. With Multus, you can use different CNI plugins to assign either overlay or underlay network interfaces to the Pods. 3. Kubelet Configuration: Kubelet, an essential Kubernetes component on each node, is responsible for integrating CNI providers. Configuration commands, typically introduced in the kubelet.service file, facilitate this compatibility. ```json { \"cniConfigFilePath\": \"/etc/cni/net.d/\", \"networkPluginName\": \"cni-type\", \"featureGates\": { \"CSIMigration\": true, \"CSIMigrationAWS\": true, \"CSIMigrationAzureDisk\": true, \"CSIMigrationAzureFile\": true, \"CSIMigrationGCEPD\": true, \"SupportPodPidsLimit\": true } } ``` Here, `cniConfigFilePath` specifies the path for CNI configuration files, while `networkPluginName` names the CNI plugin Kubernetes should use. 4. API Server Triggers: By interacting with the pod lifecycle events, the API server can trigger CNI when pods require network interfaces. 5. CoreDNS Integration: CoreDNS acts as a plugin for Kubernetes DNS, providing a unified method for service discovery. 6. Use Throughout the Stack: After establishing a network, CNI serves an essential role in the Kubernetes stack, including in Service and Ingress controller configurations. 7. DaemonSets: Operators use DaemonSets to run CNI plugins on every Kubernetes node. This ensures network configuration consistency across the cluster. 8. Namespace Segmentation: Kubernetes frequently utilizes CNI to prevent traffic from leaking between namespaces, ensuring network security. CNI is primarily responsible for performing network segmentation to meet these policy requirements. <br>",
+    "category": "基础概念",
+    "difficulty": "初级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.321Z",
+    "id": "7e2c8ba77bc72d7b",
+    "createdAt": "2026-04-24T06:47:57.321Z",
+    "updatedAt": "2026-04-24T06:47:57.321Z"
+  },
+  {
+    "source": "github",
+    "question": "How do you implement _Network Policies_, and what are their benefits?",
+    "answer": "Kubernetes Network Policies regulate traffic within the cluster, boosting both security and performance. Core Elements - Network Policy: The rule-set defining traffic behavior. - Selector: Identifies pods to which the policy applies. - Gateways / Egress Points: Regulate outgoing traffic. - Ingress Definition: Specifies allowed inbound connections. Policy Types - Allow: Permits specific traffic types. - Deny: Blocks specified traffic types. - Blacklist / Whitelist: Contradictory to Allow & Deny, they either block everything except what's listed (Whitelist) or block specific things except what's listed (Blacklist). Policy Language Different Kubernetes tools and implementations have their own way of writing policies. - Cilium: Uses rich BPF rule expression to define advanced rules and manage application-level policies. - Calico: Adds its security and network features, with a powerful policy engine allowing you to express complex network rules. Best Practices 1. Start Simple: Build policies gradually, testing after each rule addition. 2. Documentation: Detailed policy design and updates encourage consistent and secure practices. 3. Review Regularly: Network requirements can change, necessitating policy updates. 4. Testing: Use tools like `kube-router` to verify policy application. What It Means for Businesses By implementing Network Policies, businesses can ensure more secure and efficient internal Kubernetes communication, meeting compliance and governance requirements. <br> Explore all 42 answers here 👉 [Devinterview.io - Kubernetes](https://devinterview.io/questions/software-architecture-and-system-design/kubernetes-interview-questions) <br> <a href=\"https://devinterview.io/questions/software-architecture-and-system-design/\"> <img src=\"https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/github-blog-img%2Fsoftware-architecture-and-system-design-github-img.jpg?alt=media&token=521fd2a9-0d56-49c0-a723-9bd6ca081893\" alt=\"software-architecture-and-system-design\" width=\"100%\"> </a> </p>",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "interview"
+    ],
+    "sourceUrl": "https://github.com/Devinterview-io/kubernetes-interview-questions",
+    "syncAt": "2026-04-24T06:47:57.322Z",
+    "id": "1d15af71545f1953",
+    "createdAt": "2026-04-24T06:47:57.322Z",
+    "updatedAt": "2026-04-24T06:47:57.322Z"
+  },
+  {
+    "source": "github",
+    "question": "ETCD及其特点？",
+    "answer": "ETCD是一个管理配置信息和服务发现的项目， 它的目标是构建一个高可用的分布式键值数据库，基于Go语言实现。 特点 - 简单：支持 REST 风格的 HTTP+JSON API - 安全：支持 HTTPS 方式的访问快速：支持并发 1k/s 的写操作 - 可靠：支持分布式结构，基于 Raft 的一致性算法，Raft 是一套通过选举主节点来实现分布式系统一致性的算法 应用场景 - 服务发现：服务发现主要解决在同一个分布式集群中的进程或服务，要如何才能找到对方并建立连接。本质上来说，服务发现就是想要了解集群中是否有进程在监听UDP或TCP端口，并且通过名字就可以查找和连接。 - 消息发布与订阅：在分布式系统中，最适用的一种组件间通信方式就是消息发布与订阅。即构建一个配置共享中心，数据提供者在这个配置中心发布消息，而消息使用者则订阅他们关心的主题，一旦主题有消息发布，就会实时通知订阅者。通过这种方式可以做到分布式系统配置的集中式管理与动态更新。应用中用到的一些配置信息放到ETCD上进行集中管理。 - 负载均衡：在分布式系统中，为了保证服务的高可用以及数据的一致性，通常都会把数据和服务部署多份，以此达到对等服务，即使其中的某一个服务失效了，也不影响使用。ETCD本身分布式架构存储的信息访问支持负载均衡。ETCD集群化以后，每个ETCD的核心节点都可以处理用户的请求。所以，把数据量小但是访问频繁的消息数据直接存储到ETCD中也可以实现负载均衡的效果。 - 分布式通知与协调：与消息发布和订阅类似，都用到了ETCD中的Watcher机制，通过注册与异步通知机制，实现分布式环境下不同系统之间的通知与协调，从而对数据变更做到实时处理。 - 分布式锁：因为ETCD使用Raft算法保持了数据的强一致性，某次操作存储到集群中的值必然是全局一致的，所以很容易实现分布式锁。锁服务有两种使用方式，一是保持独占，二是控制时序。 - 集群监控与Leader竞选：通过ETCD来进行监控实现起来非常简单并且实时性强。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.338Z",
+    "id": "e9a0ec691864a8d0",
+    "createdAt": "2026-04-24T06:47:57.338Z",
+    "updatedAt": "2026-04-24T06:47:57.338Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes和Docker的关系？",
+    "answer": "Docker提供容器的生命周期管理和，Docker镜像构建运行时容器。它的主要优点是将软件/应用程序运行所需的设置和依赖项打包到一个容器中，从而实现了可移植性等优点。 Kubernetes用于关联和编排在多个主机上运行的容器。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.339Z",
+    "id": "f378505289464442",
+    "createdAt": "2026-04-24T06:47:57.340Z",
+    "updatedAt": "2026-04-24T06:47:57.340Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes中什么是Minikube、Kubectl、Kubelet？",
+    "answer": "Minikube是一种可以在本地轻松运行一个单节点Kubernetes群集的工具。 Kubectl是一个命令行工具，可以使用该工具控制Kubernetes集群管理器，如检查群集资源，创建、删除和更新组件，查看应用程序。 Kubelet是一个代理服务，它在每个节点上运行，并使从服务器与主服务器通信。",
+    "category": "Kubernetes",
+    "difficulty": "初级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.341Z",
+    "id": "20b6db2ff828f40c",
+    "createdAt": "2026-04-24T06:47:57.341Z",
+    "updatedAt": "2026-04-24T06:47:57.341Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes的部署方式？",
+    "answer": "常见的Kubernetes部署方式有：kubeadm：也是推荐的一种部署方式；二进制。",
+    "category": "架构组件",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.342Z",
+    "id": "78aee5c9afcee1ac",
+    "createdAt": "2026-04-24T06:47:57.343Z",
+    "updatedAt": "2026-04-24T06:47:57.343Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes如何实现集群管理？",
+    "answer": "Kubernetes将集群中的机器划分为一个Master节点和一群工作节点Node。其中，在Master节点运行着集群管理相关的一组进程kube-apiserver、kube-controller-manager和kube- scheduler，这些进程实现了整个集群的资源管理、Pod调度、弹性伸缩、安全控制、系统监控和纠错等管理能力，并且都是全自动完成的。",
+    "category": "架构组件",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.343Z",
+    "id": "e296668123c9b2ee",
+    "createdAt": "2026-04-24T06:47:57.343Z",
+    "updatedAt": "2026-04-24T06:47:57.343Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes的优势、适应场景及其特点？",
+    "answer": "优势 - 容器编排轻量级开源 - 弹性伸缩负载均衡 常见场景 - 快速部署应用快速扩展应用 - 无缝对接新的应用功能 - 节省资源，优化硬件资源的使用 特点 - 可移植：支持公有云、私有云、混合云、多重云(multi-cloud） - 可扩展：模块化,、插件化、可挂载、可组合。 - 自动化：自动部署、自动重启、自动复制、自动伸缩/扩展",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.344Z",
+    "id": "3978d2e017c9bf6a",
+    "createdAt": "2026-04-24T06:47:57.344Z",
+    "updatedAt": "2026-04-24T06:47:57.344Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes相关基础概念？",
+    "answer": "Master k8s集群的管理节点，负责管理集群，提供集群的资源数据访问入口。拥有ETCD存储服务，运行Api Server进程，Controller Manager服务进程及Scheduler服务进程。 Node(worker) Node(worker)是Kubernetes集群架构中运行Pod的服务节点，是Kubernetes集群操作的单元，用来承载被分配Pod的运行，是Pod运行的宿主机。运行docker eninge服务，守护进程kunelet及负载均衡器kube-proxy。 Pod 运行于Node节点上，若干相关容器的组合。Pod内包含的容器运行在同一宿主机上，使用相同的网络命名空间、IP地址和端口，能够通过localhost进行通信。Pod是Kurbernetes进行创建、调度和管理的最小单位，它提供了比容器更高层次的抽象，使得部署和管理更加灵活。一个Pod可以包含一个容器或者多个相关容器。 Label Kubernetes中的实质是一系列的Key/Value键值对，其中key与value可自定义。Label可以附加到各种资源对象上，如Node、Pod、Service、RC等。一个资源对象可以定义任意数量的Label，同一个Label也可以被添加到任意数量的资源对象上去。Kubernetes通过Label Selector查询和筛选资源对象。 Replication Controller Replication Controller用来管理Pod的副本，保证集群中存在指定数量的Pod副本。集群中副本的数量大于指定数量，则会停止指定数量之外的多余容器数量。反之，则会启动 少于指定数量个数的容器，保证数量不变。RC是实现弹性伸缩、动态扩容和滚动升级的核心。 Deployment Deployment在内部使用了RS来实现目的，Deployment相当于RC的一次升级，其最大的特色为可以随时获知当前Pod的部署进度。 HPA Pod的横向自动扩容，也是Kubernetes的一种资源，通过追踪分析RC控制的所有Pod目标的负载变化情况，来确定是否需要针对性的调整Pod副本数量。 Service 定义了Pod的逻辑集合和访问该集合的策略，是真实服务的抽象。Service提供了一个统一的服务访问入口以及服务代理和发现机制，关联多个相同Label的Pod，用户不需要了解后台Pod是如何运行。 Volume Volume是Pod中能够被多个容器访问的共享目录，Kubernetes中的Volume是定义在Pod上，可以被一个或多个Pod中的容器挂载到某个目录下。 Namespace Namespace用于实现多租户的资源隔离，可将集群内部的资源对象分配到不同的Namespace中，形成逻辑上的不同项目、小组或用户组，便于不同的Namespace在共享使用整个集群的资源的同时还能被分别管理。",
+    "category": "Kubernetes",
+    "difficulty": "初级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.348Z",
+    "id": "23d3deb04d5c3aef",
+    "createdAt": "2026-04-24T06:47:57.348Z",
+    "updatedAt": "2026-04-24T06:47:57.348Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes集群相关组件？",
+    "answer": "API Server 作为Kubernetes系统的入口，其封装了核心对象的增删改查操作，以RESTful API接口方式提供给外部客户和内部组件调用，集群内各个功能模块之间数据交互和通信的中心枢纽。 Scheduler 为新建立的Pod进行节点(node)选择(即分配机器)，负责集群的资源调度。 Kubernetes Controller 负责执行各种控制器，目前已经提供了很多控制器来保证Kubernetes的正常运行。 Replication Controller 管理维护Replication Controller，关联Replication Controller和Pod，保证Replication Controller定义的副本数量与实际运行Pod数量一致。 Node Controller 管理维护Node，定期检查Node的健康状态，标识出(失效|未失效)的Node节点。 Namespace Controller 管理维护Namespace，定期清理无效的Namespace，包括Namesapce下的API对象，比如Pod、Service等。 Service Controller 管理维护Service，提供负载以及服务代理。 EndPoints Controller 管理维护Endpoints，关联Service和Pod，创建Endpoints为Service的后端， 当Pod发生变化时，实时更新Endpoints。 Service Account Controller 管理维护Service Account，为每个Namespace创建默认的Service Account，同时为Service Account创建Service Account Secret。 Persistent Volume Controller：管理维护Persistent Volume和Persistent Volume Claim，为新的Persistent Volume Claim分配Persistent Volume进行绑定，为释放的Persistent Volume执行清理回收。 Daemon Set Controller 管理维护Daemon Set，负责创建Daemon Pod，保证指定的Node上正常的运行Daemon Pod。 Deployment Controller 管理维护Deployment，关联Deployment和Replication Controller，保证运行指定数量的Pod。当Deployment更新时，控制实现Replication Controller和Pod的更新。 Job Controller 管理维护Job，为Jod创建一次性任务Pod，保证完成Job指定完成的任务数目 Pod Autoscaler Controller 实现Pod的自动伸缩，定时获取监控数据，进行策略匹配，当满足条件时执行Pod的伸缩动作。",
+    "category": "架构组件",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.349Z",
+    "id": "8e5f8ad8506dfe1c",
+    "createdAt": "2026-04-24T06:47:57.349Z",
+    "updatedAt": "2026-04-24T06:47:57.349Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes RC的机制？",
+    "answer": "Replication Controller用来管理Pod的副本，保证集群中存在指定数量的Pod副本。当定义了RC并提交至Kubernetes集群中之后，Master节点上的Controller Manager组件获悉，并同时巡检系统中当前存活的目标Pod，并确保目标Pod实例的数量刚好等于此RC的期望值，若存在过多的Pod副本在运行，系统会停止一些Pod，反之则自动创建一些Pod。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.350Z",
+    "id": "eecad1ec51f3f03f",
+    "createdAt": "2026-04-24T06:47:57.350Z",
+    "updatedAt": "2026-04-24T06:47:57.350Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Replica Set 和 Replication Controller 之间有什么区别？",
+    "answer": "Replica Set和Replication Controller类似，都是确保在任何给定时间运行指定数量的Pod副本。不同之处在于RS使用基于集合的选择器，而Replication Controller使用基于权限的选择器。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.350Z",
+    "id": "6a434d21ab08ce76",
+    "createdAt": "2026-04-24T06:47:57.351Z",
+    "updatedAt": "2026-04-24T06:47:57.351Z"
+  },
+  {
+    "source": "github",
+    "question": "kube-proxy作用？",
+    "answer": "kube-proxy运行在所有节点上，它监听apiserver中service和endpoint的变化情况，创建路由规则以提供服务IP和负载均衡功能。Service的透明代理兼负载均衡器，其核心功能是将到某个Service的访问请求转发到后端的多个Pod实例上。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.351Z",
+    "id": "5ebcc84de3e92b64",
+    "createdAt": "2026-04-24T06:47:57.351Z",
+    "updatedAt": "2026-04-24T06:47:57.351Z"
+  },
+  {
+    "source": "github",
+    "question": "kube-proxy iptables原理？",
+    "answer": "Kubernetes从1.2版本开始，将iptables作为kube-proxy的默认模式。iptables模式下的kube-proxy不再起到Proxy的作用，其核心功能：通过API Server的Watch接口实时跟踪Service与Endpoint的变更信息，并更新对应的iptables规则，Client的请求流量则通过iptables的NAT机制路由到目标Pod。",
+    "category": "Kubernetes",
+    "difficulty": "高级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.352Z",
+    "id": "25b8761341f9ab05",
+    "createdAt": "2026-04-24T06:47:57.352Z",
+    "updatedAt": "2026-04-24T06:47:57.352Z"
+  },
+  {
+    "source": "github",
+    "question": "kube-proxy ipvs原理？",
+    "answer": "IPVS在Kubernetes1.11中升级为GA稳定版。IPVS则专门用于高性能负载均衡，并使用更高效的数据结构(Hash表），允许几乎无限的规模扩张，因此被kube-proxy采纳为最新模式。 在IPVS模式下，使用iptables的扩展ipset，而不是直接调用iptables来生成规则链。iptables规则链是一个线性的数据结构，ipset则引入了带索引的数据结构，因此当规则很多时，也可以很高效地查找和匹 配。 可以将ipset简单理解为一个IP的集合，这个集合的内容可以是IP地址、IP网段、端口等，iptables可以直接添加规则对这个可变的集合进行操作，这样做的好处在于可以大大减少iptables规则的数量， 从而减少性能损耗。",
+    "category": "存储",
+    "difficulty": "高级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.353Z",
+    "id": "e845914e81ce084c",
+    "createdAt": "2026-04-24T06:47:57.353Z",
+    "updatedAt": "2026-04-24T06:47:57.353Z"
+  },
+  {
+    "source": "github",
+    "question": "kube-proxy ipvs和iptables的异同？",
+    "answer": "iptables与IPVS都是基于Netfilter实现的，但因为定位不同，二者有着本质的差别：iptables是为防火墙而设计的；IPVS则专门用于高性能负载均衡，并使用更高效的数据结构(Hash表）。 与iptables相比，IPVS拥有以下明显优势： - 为大型集群提供了更好的可扩展性和性能 - 支持比iptables更复杂的复制均衡算法(最小负载、最少连接、加权等） - 支持服务器健康检查和连接重试等功能 - 可以动态修改ipset的集合，即使iptables的规则正在使用这个集合",
+    "category": "存储",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.354Z",
+    "id": "5299426a2708c8e8",
+    "createdAt": "2026-04-24T06:47:57.354Z",
+    "updatedAt": "2026-04-24T06:47:57.354Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes中什么是静态Pod？",
+    "answer": "静态pod是由kubelet进行管理的仅存在于特定Node的Pod上，他们不能通过API Server进行管理，无法与ReplicationController、Deployment或者DaemonSet进行关联，并且kubelet无法对他们进行健康检 查。静态Pod总是由kubelet进行创建，并且总是在kubelet所在的Node上运行。",
+    "category": "基础概念",
+    "difficulty": "初级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.354Z",
+    "id": "e3b8b82fcd364602",
+    "createdAt": "2026-04-24T06:47:57.355Z",
+    "updatedAt": "2026-04-24T06:47:57.355Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes中Pod可能位于的状态？",
+    "answer": "Pending：API Server已经创建该Pod，且Pod内还有一个或多个容器的镜像没有创建，包括正在下载镜像的过程。 Running：Pod内所有容器均已创建，且至少有一个容器处于运行状态、正在启动状态或正在重启状态。 Succeeded：Pod内所有容器均成功执行退出，且不会重启。 Failed：Pod内所有容器均已退出，但至少有一个容器退出为失败状态。 Unknown：由于某种原因无法获取该Pod状态，可能由于网络通信不畅导致。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.355Z",
+    "id": "0242b68001cad33b",
+    "createdAt": "2026-04-24T06:47:57.356Z",
+    "updatedAt": "2026-04-24T06:47:57.356Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes创建一个Pod的主要流程？",
+    "answer": "Kubernetes中创建一个Pod涉及多个组件之间联动，主要流程如下： - 客户端提交Pod的配置信息(可以是yaml文件定义的信息）到kube-apiserver。 - Apiserver收到指令后，通知给controller-manager创建一个资源对象。 - Controller-manager通过api-server将pod的配置信息存储到ETCD数据中心中。 - Kube-scheduler检测到pod信息会开始调度预选，会先过滤掉不符合Pod资源配置要求的节点，然后开始调度调优，主要是挑选出更适合运行pod的节点，然后将pod的资源配置单发送到node节点上的kubelet组件上。 - Kubelet根据scheduler发来的资源配置单运行pod，运行成功后，将pod的运行信息返回给scheduler，scheduler将返回的pod运行状况的信息存储到etcd数据中心。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.356Z",
+    "id": "38dcfe38b4e7f1e1",
+    "createdAt": "2026-04-24T06:47:57.356Z",
+    "updatedAt": "2026-04-24T06:47:57.356Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes中Pod的重启策略？",
+    "answer": "Pod重启策略(RestartPolicy）应用于Pod内的所有容器，并且仅在Pod所处的Node上由kubelet进行判断和重启操作。当某个容器异常退出或者健康检查失败时，kubelet将根据RestartPolicy的设置来进行相应操作。Pod的重启策略包括Always、OnFailure和Never，默认值为Always。 - Always：当 容 器 失 效 时 ， 由 kubelet 自 动 重 启 该 容 器 - OnFailure：当容器终止运行且退出码不为0时，由kubelet自动重启该容器 - Never：不论容器运行状态如何，kubelet都不会重启该容器 同时Pod的重启策略与控制方式关联，当前可用于管理Pod的控制器包括ReplicationController、Job、DaemonSet及直接管理kubelet管理(静态Pod）。 不同控制器的重启策略限制如下： - RC和DaemonSet：必须设置为Always，需要保证该容器持续运行 - Job：OnFailure或Never，确保容器执行完成后不再重启 - kubelet：在Pod失效时重启，不论将RestartPolicy设置为何值，也不会对Pod进行健康检查",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.357Z",
+    "id": "98c0854a967909b0",
+    "createdAt": "2026-04-24T06:47:57.357Z",
+    "updatedAt": "2026-04-24T06:47:57.357Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes中Pod的健康检查方式？",
+    "answer": "对Pod的健康检查可以通过两类探针来检查：LivenessProbe和ReadinessProbe。 - LivenessProbe探针：用于判断容器是否存活(running状态），如果LivenessProbe探针探测到容器不健康，则kubelet将杀掉该容器，并根据容器的重启策略做相应处理。若一个容器不包含LivenessProbe探针，kubelet认为该容器的LivenessProbe探针返回值用于是“Success”。 - ReadineeProbe探针：用于判断容器是否启动完成(ready状态）。如果ReadinessProbe探针探测到失败，则Pod的状态将被修改。Endpoint Controller将从Service的Endpoint中删除包含该容器所在Pod 的Eenpoint。 - startupProbe探针：启动检查机制，应用一些启动缓慢的业务，避免业务长时间启动而被上面两类探针kill掉。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.358Z",
+    "id": "eb4cae1384a36361",
+    "createdAt": "2026-04-24T06:47:57.358Z",
+    "updatedAt": "2026-04-24T06:47:57.358Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Pod的LivenessProbe探针的常见方式？",
+    "answer": "kubelet定期执行LivenessProbe探针来诊断容器的健康状态，通常有以下三种方式： ExecAction：在容器内执行一个命令 ， 若返回码为0，则表明容器健康。 TCPSocketAction：通过容器的IP地址和端口号执行TCP检查，若能建立TCP连接，则表明容器健康。 HTTPGetAction：通过容器的IP地址、端口号及路径调用HTTP Get方法，若响应的状态码大于等于200且小于400，则表明容器健康。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.359Z",
+    "id": "b51653ff595bf3d5",
+    "createdAt": "2026-04-24T06:47:57.359Z",
+    "updatedAt": "2026-04-24T06:47:57.359Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Pod的常见调度方式？",
+    "answer": "Deployment或RC 该调度策略主要功能就是自动部署一个容器应用的多份副本，以及持续监控副本的数量，在集群内始终维持用户指定的副本数量。 NodeSelector 定向调度，当需要手动指定将Pod调度到特定Node上，可以通过Node的标签。Label和Pod的nodeSelector属性相匹配。 NodeAffinity亲和性调度 requiredDuringSchedulingIgnoredDuringExecution：硬规则，必须满足指定的规则，调度器才可以调度Pod至Node上(类似nodeSelector，语法不同）。preferredDuringSchedulingIgnoredDuringExecution：软规则，优先调度至满足的Node的节点，但不强求，多个优先级规则还可以设置权重值。 Taints和Tolerations(污点和容忍） 使Node拒绝特定Pod运行。 Toleration 为Pod的属性，表示Pod能容忍标注了Taint的Node。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.360Z",
+    "id": "71bc2834c972b9fb",
+    "createdAt": "2026-04-24T06:47:57.360Z",
+    "updatedAt": "2026-04-24T06:47:57.360Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes初始化容器(init container）？",
+    "answer": "init container的运行方式与应用容器不同，它们必须先于应用容器执行完成，当设置了多个init container时，将按顺序逐个运行，并且只有前一个init container运行成功后才能运行后一个init container。当所有init container都成功运行后，Kubernetes才会初始化Pod的各种信息，并开始创建和运行应用容器。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.361Z",
+    "id": "de6ecc4b36561962",
+    "createdAt": "2026-04-24T06:47:57.361Z",
+    "updatedAt": "2026-04-24T06:47:57.361Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes deployment升级过程？",
+    "answer": "初始创建Deployment时，系统创建了一个ReplicaSet，并按用户的需求创建了对应数量的Pod副本。当更新Deployment时，系统创建了一个新的ReplicaSet，并将其副本数量扩展到1，然后将旧ReplicaSet缩减为2。之后，系统继续按照相同的更新策略对新旧两个ReplicaSet进行逐个调整。最后，新的ReplicaSet运行了对应个新版本Pod副本，旧的ReplicaSet副本数量则缩减为0。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.362Z",
+    "id": "c9a6c1a2ab6d2f68",
+    "createdAt": "2026-04-24T06:47:57.362Z",
+    "updatedAt": "2026-04-24T06:47:57.362Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes deployment升级策略？",
+    "answer": "在Deployment的定义中，可以通过spec.strategy指定Pod更新的策略，目前支持两种策略： Recreate(重建）和RollingUpdate(滚动更新），默认值为RollingUpdate。 Recreate：设置spec.strategy.type=Recreate，表示Deployment在更新Pod时，会先杀掉所有正在运行的Pod，然后创建新的Pod。 RollingUpdate：设置spec.strategy.type=RollingUpdate，表示Deployment会以滚动更新的方式来逐个更新Pod。同时，可以通过设置spec.strategy.rollingUpdate下的两个参数(maxUnavailable和maxSurge）来控制滚动更新的过程。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.363Z",
+    "id": "0a53030196fd5f42",
+    "createdAt": "2026-04-24T06:47:57.363Z",
+    "updatedAt": "2026-04-24T06:47:57.363Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes DaemonSet类型的资源特性？",
+    "answer": "DaemonSet资源对象会在每个Kubernetes集群中的节点上运行，并且每个节点只能运行一个pod，这是它和deployment资源对象的最大也是唯一的区别。因此，在定义yaml文件中，不支持定义replicas。 它的一般使用场景如下：在去做每个节点的日志收集工作。监控每个节点的的运行状态。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.364Z",
+    "id": "25d5f0370fdac310",
+    "createdAt": "2026-04-24T06:47:57.364Z",
+    "updatedAt": "2026-04-24T06:47:57.364Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes自动扩容机制？",
+    "answer": "Kubernetes使用Horizontal Pod Autoscaler(HPA）的控制器实现基于CPU使用率进行自动Pod扩缩容的功能。HPA控制器周期性地监测目标Pod的资源性能指标，并与HPA资源对象中的扩缩容条件进行对比，在满足条件时对Pod副本数量进行调整。 HPA原理 Kubernetes中的某个Metrics Server(Heapster或自定义Metrics Server）持续采集所有Pod副本的指标数据。HPA控制器通过Metrics Server的API(Heapster的API或聚合API）获取这些数据，基于用户定义的扩缩容规则进行计算，得到目标Pod副本数量。当目标Pod副本数量与当前副本数量不同时，HPA控制器就向Pod的副本控制器(Deployment、RC或ReplicaSet）发起scale操作，调整Pod的副本数量，完成扩缩容操作。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.364Z",
+    "id": "44d6837a675a45d2",
+    "createdAt": "2026-04-24T06:47:57.365Z",
+    "updatedAt": "2026-04-24T06:47:57.365Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Service类型？",
+    "answer": "通过创建Service，可以为一组具有相同功能的容器应用提供一个统一的入口地址，并且将请求负载分发到后端的各个容器应用上。其主要类型有： - ClusterIP：虚拟的服务IP地址，该地址用于Kubernetes集群内部的Pod访问，在Node上kube- proxy通过设置的iptables规则进行转发 - NodePort：使用宿主机的端口，使能够访问各Node的外部客户端通过Node的IP地址和端口号就能访问服务 - LoadBalancer：使用外接负载均衡器完成到服务的负载分发，需要在spec.status.loadBalancer字段指定外部负载均衡器的IP地址，通常用于公有云",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.365Z",
+    "id": "5cf29732a61270a2",
+    "createdAt": "2026-04-24T06:47:57.366Z",
+    "updatedAt": "2026-04-24T06:47:57.366Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Service分发后端的策略？",
+    "answer": "- Service负载分发的策略有：RoundRobin和SessionAffinity - RoundRobin：默认为轮询模式，即轮询将请求转发到后端的各个Pod上 - SessionAffinity：基于客户端IP地址进行会话保持的模式，即第1次将某个客户端发起的请求转发到后端的某个Pod上，之后从相同的客户端发起的请求都将被转发到后端相同的Pod上",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.366Z",
+    "id": "628c0f460a072e3a",
+    "createdAt": "2026-04-24T06:47:57.366Z",
+    "updatedAt": "2026-04-24T06:47:57.366Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Headless Service？",
+    "answer": "在某些应用场景中，若需要人为指定负载均衡器，不使用Service提供的默认负载均衡的功能，或者应用程序希望知道属于同组服务的其他实例。Kubernetes提供了Headless Service来实现这种功能，即不为Service设置ClusterIP(入口IP地址），仅通过Label Selector将后端的Pod列表返回给调用的客户端。",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.367Z",
+    "id": "deaee1bb12c2a6a0",
+    "createdAt": "2026-04-24T06:47:57.367Z",
+    "updatedAt": "2026-04-24T06:47:57.367Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes外部如何访问集群内的服务？",
+    "answer": "对于Kubernetes，集群外的客户端默认情况，无法通过Pod的IP地址或者Service的虚拟IP地址：虚拟端口 号进行访问。通常可以通过以下方式进行访问Kubernetes集群内的服务： - 映射Pod到物理机：将Pod端口号映射到宿主机，即在Pod中采用hostPort方式，以使客户端应用能够通过物理机访问容器应用。 - 映射Service到物理机：将Service端口号映射到宿主机，即在Service中采用nodePort方式，以使客户端 应用能够通过物理机访问容器应用。 - 映射Sercie到LoadBalancer：通过设置LoadBalancer映射到云服务商提供的LoadBalancer地址。这种 用法仅用于在公有云服务提供商的云平台上设置Service的场景。",
+    "category": "架构组件",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.368Z",
+    "id": "21c04c704a59ddb9",
+    "createdAt": "2026-04-24T06:47:57.368Z",
+    "updatedAt": "2026-04-24T06:47:57.368Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes ingress？",
+    "answer": "Kubernetes的Ingress资源对象，用于将不同URL的访问请求转发到后端不同的Service，以实现HTTP层的业务路由机制。 Kubernetes使用了Ingress策略和Ingress Controller，两者结合并实现了一个完整的Ingress负载均衡器。使用Ingress进行负载分发时，Ingress Controller基于Ingress规则将客户端请求直接转发到Service 对应的后端Endpoint(Pod）上，从而跳过kube-proxy的转发功能，kube-proxy不再起作用，全过程为：ingress controller + ingress 规则 > services。 同时当Ingress Controller提供的是对外服务，则实际上实现的是边缘路由器的功能。",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.369Z",
+    "id": "48250ec2c934761c",
+    "createdAt": "2026-04-24T06:47:57.369Z",
+    "updatedAt": "2026-04-24T06:47:57.369Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes的负载均衡器？",
+    "answer": "负载均衡器是暴露服务的最常见和标准方式之一。 根据工作环境使用两种类型的负载均衡器，即内部负载均衡器或外部负载均衡器。内部负载均衡器自动 平衡负载并使用所需配置分配容器，而外部负载均衡器将流量从外部负载引导至后端容器。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.370Z",
+    "id": "1534bbaa26a8e4c4",
+    "createdAt": "2026-04-24T06:47:57.370Z",
+    "updatedAt": "2026-04-24T06:47:57.370Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes各模块如何与API Server通信？",
+    "answer": "Kubernetes API Server作为集群的核心，负责集群各功能模块之间的通信。集群内的各个功能模块通过API Server将信息存入etcd，当需要获取和操作这些数据时，则通过API Server提供的REST接口(用GET、LIST或WATCH方法）来实现，从而实现各模块之间的信息交互。 如kubelet进程与API Server的交互：每个Node上的kubelet每隔一个时间周期，就会调用一次API Server的REST接口报告自身状态，API Server在接收到这些信息后，会将节点状态信息更新到etcd中。 如kube-controller-manager进程与API Server的交互：kube-controller-manager中的Node Controller 模块通过API Server提供的Watch接口实时监控Node的信息，并做相应处理。 如kube-scheduler进程与API Server的交互：Scheduler通过API Server的Watch接口监听到新建Pod副本的信息后，会检索所有符合该Pod要求的Node列表，开始执行Pod调度逻辑，在调度成功后将Pod绑定到目标节点上。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.371Z",
+    "id": "0f0922ac2407d771",
+    "createdAt": "2026-04-24T06:47:57.371Z",
+    "updatedAt": "2026-04-24T06:47:57.371Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Scheduler作用及实现原理？",
+    "answer": "Kubernetes Scheduler是负责Pod调度的重要功能模块，Kubernetes Scheduler在整个系统中承担了“承上启下”的重要功能，“承上”是指它负责接收Controller Manager创建的新Pod，为其调度至目标 Node；“启下”是指调度完成后，目标Node上的kubelet服务进程接管后继工作，负责Pod接下来生命周 期。 Kubernetes Scheduler的作用是将待调度的Pod(API新创建的Pod、Controller Manager为补足副本而创建的Pod等）按照特定的调度算法和调度策略绑定(Binding）到集群中某个合适的Node上，并将绑定信息写入etcd中。 在整个调度过程中涉及三个对象，分别是待调度Pod列表、可用Node列表，以及调度算法和策略。 Kubernetes Scheduler通过调度算法调度为待调度Pod列表中的每个Pod从Node列表中选择一个最适合的Node来实现Pod的调度。随后，目标节点上的kubelet通过API Server监听到Kubernetes Scheduler 产生的Pod绑定事件，然后获取对应的Pod清单，下载Image镜像并启动容器。",
+    "category": "架构组件",
+    "difficulty": "高级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.371Z",
+    "id": "2ada06a226959a5b",
+    "createdAt": "2026-04-24T06:47:57.372Z",
+    "updatedAt": "2026-04-24T06:47:57.372Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Scheduler使用哪两种算法将Pod绑定到worker节点？",
+    "answer": "Kubernetes Scheduler根据如下两种调度算法将 Pod 绑定到最合适的工作节点： 预选(Predicates）：输入是所有节点，输出是满足预选条件的节点。kube-scheduler根据预选策略过滤掉不满足策略的Nodes。如果某节点的资源不足或者不满足预选策略的条件则无法通过预选。如 “Node的label必须与Pod的Selector一致”。 优选(Priorities）：输入是预选阶段筛选出的节点，优选会根据优先策略为通过预选的Nodes进行打分 排名，选择得分最高的Node。例如，资源越富裕、负载越小的Node可能具有越高的排名。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.372Z",
+    "id": "1a19d20ed011a5a5",
+    "createdAt": "2026-04-24T06:47:57.373Z",
+    "updatedAt": "2026-04-24T06:47:57.373Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes kubelet的作用？",
+    "answer": "在Kubernetes集群中，在每个Node(又称Worker）上都会启动一个kubelet服务进程。该进程用于处 理Master下发到本节点的任务，管理Pod及Pod中的容器。每个kubelet进程都会在API Server上注册节点自身的信息，定期向Master汇报节点资源的使用情况，并通过cAdvisor监控容器和节点资源。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.373Z",
+    "id": "31d60abf3c156f11",
+    "createdAt": "2026-04-24T06:47:57.373Z",
+    "updatedAt": "2026-04-24T06:47:57.373Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes kubelet监控Worker节点资源是使用什么组件来实现的？",
+    "answer": "kubelet使用cAdvisor对worker节点资源进行监控。在 Kubernetes 系统中，cAdvisor 已被默认集成到kubelet 组件内，当 kubelet 服务启动时，它会自动启动 cAdvisor 服务，然后 cAdvisor 会实时采集所在节点的性能指标及在节点上运行的容器的性能指标。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.374Z",
+    "id": "827ba687bc41a7ad",
+    "createdAt": "2026-04-24T06:47:57.374Z",
+    "updatedAt": "2026-04-24T06:47:57.374Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes如何保证集群的安全性？",
+    "answer": "Kubernetes通过一系列机制来实现集群的安全控制，主要有如下不同的维度： 基础设施方面：保证容器与其所在宿主机的隔离； 权限方面： 最小权限原则：合理限制所有组件的权限，确保组件只执行它被授权的行为，通过限制单个组件的 能力来限制它的权限范围。 用户权限：划分普通用户和管理员的角色。集群方面： API Server的认证授权：Kubernetes集群中所有资源的访问和变更都是通过Kubernetes API Server来实现的，因此需要建议采用更安全的HTTPS或Token来识别和认证客户端身份 (Authentication），以及随后访问权限的授权(Authorization）环节。 API Server的授权管理：通过授权策略来决定一个API调用是否合法。对合法用户进行授权并且随后在用户访问时进行鉴权，建议采用更安全的RBAC方式来提升集群安全授权。 敏感数据引入Secret机制：对于集群敏感数据建议使用Secret方式进行保护。 AdmissionControl(准入机制）：对kubernetes api的请求过程中，顺序为：先经过认证 & 授权，然后执行准入操作，最后对目标对象进行操作。",
+    "category": "安全",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.375Z",
+    "id": "affdb5ba3ae9dab2",
+    "createdAt": "2026-04-24T06:47:57.375Z",
+    "updatedAt": "2026-04-24T06:47:57.375Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes准入机制？",
+    "answer": "在对集群进行请求时，每个准入控制代码都按照一定顺序执行。如果有一个准入控制拒绝了此次请求， 那么整个请求的结果将会立即返回，并提示用户相应的error信息。 准入控制(AdmissionControl）准入控制本质上为一段准入代码，在对kubernetes api的请求过程中， 顺序为：先经过认证 & 授权，然后执行准入操作，最后对目标对象进行操作。常用组件(控制代码）如下： AlwaysAdmit： 允 许 所 有 请 求 AlwaysDeny：禁止所有请求，多用于测试环境。 ServiceAccount：它将serviceAccounts实现了自动化，它会辅助serviceAccount做一些事情，比 如如果pod没有serviceAccount属性，它会自动添加一个default，并确保pod的serviceAccount始 终存在。 LimitRanger：观察所有的请求，确保没有违反已经定义好的约束条件，这些条件定义在namespace 中 LimitRange 对 象 中 。 NamespaceExists：观察所有的请求，如果请求尝试创建一个不存在的namespace，则这个请求被拒绝。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.376Z",
+    "id": "318f3a4d0080fc4a",
+    "createdAt": "2026-04-24T06:47:57.376Z",
+    "updatedAt": "2026-04-24T06:47:57.376Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes RBAC及其特点(优势）？",
+    "answer": "RBAC是基于角色的访问控制，是一种基于个人用户的角色来管理对计算机或网络资源的访问的方法。相对于其他授权模式，RBAC具有如下优势： 对集群中的资源和非资源权限均有完整的覆盖。 整个RBAC完全由几个API对象完成， 同其他API对象一样， 可以用kubectl或API进行操作。可以在运行时进行调整，无须重新启动API Server。",
+    "category": "安全",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.377Z",
+    "id": "197901b5fcadd15b",
+    "createdAt": "2026-04-24T06:47:57.377Z",
+    "updatedAt": "2026-04-24T06:47:57.377Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Secret作用？",
+    "answer": "Secret对象，主要作用是保管私密数据，比如密码、OAuth Tokens、SSH Keys等信息。将这些私密信息放在Secret对象中比直接放在Pod或Docker Image中更安全，也更便于使用和分发。",
+    "category": "安全",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.378Z",
+    "id": "45075fd2c521e9f2",
+    "createdAt": "2026-04-24T06:47:57.378Z",
+    "updatedAt": "2026-04-24T06:47:57.378Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Secret有哪些使用方式？",
+    "answer": "创建完secret之后，可通过如下三种方式使用： 在创建Pod时，通过为Pod指定Service Account来自动使用该Secret。通过挂载该Secret到Pod来使用它。 在Docker镜像下载时使用，通过指定Pod的spc.ImagePullSecrets来引用它。",
+    "category": "安全",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.379Z",
+    "id": "16ae07a5e6221360",
+    "createdAt": "2026-04-24T06:47:57.379Z",
+    "updatedAt": "2026-04-24T06:47:57.379Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes PodSecurityPolicy机制？",
+    "answer": "Kubernetes PodSecurityPolicy是为了更精细地控制Pod对资源的使用方式以及提升安全策略。在开启PodSecurityPolicy准入控制器后，Kubernetes默认不允许创建任何Pod，需要创建PodSecurityPolicy 策略和相应的RBAC授权策略(Authorizing Policies），Pod才能创建成功。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.380Z",
+    "id": "c6f23511f0e6ba4e",
+    "createdAt": "2026-04-24T06:47:57.380Z",
+    "updatedAt": "2026-04-24T06:47:57.380Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes PodSecurityPolicy机制能实现哪些安全策略？",
+    "answer": "在PodSecurityPolicy对象中可以设置不同字段来控制Pod运行时的各种安全策略，常见的有： 特权模式：privileged是否允许Pod以特权模式运行。 宿主机资源：控制Pod对宿主机资源的控制，如hostPID：是否允许Pod共享宿主机的进程空间。 用户和组：设置运行容器的用户ID(范围）或组(范围）。 提升权限：AllowPrivilegeEscalation：设置容器内的子进程是否可以提升权限，通常在设置非root 用户(MustRunAsNonRoot）时进行设置。 SELinux：进行SELinux的相关配置。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.381Z",
+    "id": "52b0040769bd2566",
+    "createdAt": "2026-04-24T06:47:57.381Z",
+    "updatedAt": "2026-04-24T06:47:57.381Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes网络模型？",
+    "answer": "Kubernetes网络模型中每个Pod都拥有一个独立的IP地址，并假定所有Pod都在一个可以直接连通的、 扁平的网络空间中。所以不管它们是否运行在同一个Node(宿主机）中，都要求它们可以直接通过对方 的IP进行访问。设计这个原则的原因是，用户不需要额外考虑如何建立Pod之间的连接，也不需要考虑 如何将容器端口映射到主机端口等问题。 同时为每个Pod都设置一个IP地址的模型使得同一个Pod内的不同容器会共享同一个网络命名空间，也就是同一个Linux网络协议栈。这就意味着同一个Pod内的容器可以通过localhost来连接对方的端口。 在Kubernetes的集群里，IP是以Pod为单位进行分配的。一个Pod内部的所有容器共享一个网络堆栈 (相当于一个网络命名空间，它们的IP地址、网络设备、配置等都是共享的）。",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.382Z",
+    "id": "297a2e836e2d2f01",
+    "createdAt": "2026-04-24T06:47:57.382Z",
+    "updatedAt": "2026-04-24T06:47:57.382Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes CNI模型？",
+    "answer": "CNI提供了一种应用容器的插件化网络解决方案，定义对容器网络进行操作和配置的规范，通过插件的形式对CNI接口进行实现。CNI仅关注在创建容器时分配网络资源，和在销毁容器时删除网络资源。在CNI模型中只涉及两个概念：容器和网络。 容器(Container）：是拥有独立Linux网络命名空间的环境，例如使用Docker或rkt创建的容器。容器需要拥有自己的Linux网络命名空间，这是加入网络的必要条件。 网络(Network）：表示可以互连的一组实体，这些实体拥有各自独立、唯一的IP地址，可以是容器、 物理机或者其他网络设备(比如路由器）等。 对容器网络的设置和操作都通过插件(Plugin）进行具体实现，CNI插件包括两种类型：CNI Plugin和IPAM(IP Address Management）Plugin。CNI Plugin负责为容器配置网络资源，IPAM Plugin负责对容器的IP地址进行分配和管理。IPAM Plugin作为CNI Plugin的一部分，与CNI Plugin协同工作。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.383Z",
+    "id": "efd4a9f218abfa90",
+    "createdAt": "2026-04-24T06:47:57.383Z",
+    "updatedAt": "2026-04-24T06:47:57.383Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes网络策略？",
+    "answer": "为实现细粒度的容器间网络访问隔离策略，Kubernetes引入Network Policy。 Network Policy的主要功能是对Pod间的网络通信进行限制和准入控制，设置允许访问或禁止访问的客户端Pod列表。Network Policy定义网络策略，配合策略控制器(Policy Controller）进行策略的实现。",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.384Z",
+    "id": "8f7649fe68f8417d",
+    "createdAt": "2026-04-24T06:47:57.384Z",
+    "updatedAt": "2026-04-24T06:47:57.384Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes网络策略原理？",
+    "answer": "Network Policy的工作原理主要为：policy controller需要实现一个API Listener，监听用户设置的Network Policy定义，并将网络访问规则通过各Node的Agent进行实际设置(Agent则需要通过CNI网络插件实现）。",
+    "category": "网络",
+    "difficulty": "高级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.385Z",
+    "id": "f4c714612174ada0",
+    "createdAt": "2026-04-24T06:47:57.385Z",
+    "updatedAt": "2026-04-24T06:47:57.385Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes中flannel的作用？",
+    "answer": "Flannel可以用于Kubernetes底层网络的实现，主要作用有： 它能协助Kubernetes，给每一个Node上的Docker容器都分配互相不冲突的IP地址。 它能在这些IP地址之间建立一个覆盖网络(Overlay Network），通过这个覆盖网络，将数据包原封不动地传递到目标容器内。 53、Kubernetes Calico网络组件实现原理？ Calico是一个基于BGP的纯三层的网络方案，与OpenStack、Kubernetes、AWS、GCE等云平台都能够 良好地集成。 Calico在每个计算节点都利用Linux Kernel实现了一个高效的vRouter来负责数据转发。每个vRouter都通过BGP协议把在本节点上运行的容器的路由信息向整个Calico网络广播，并自动设置到达其他节点的路由转发规则。 Calico保证所有容器之间的数据流量都是通过IP路由的方式完成互联互通的。Calico节点组网时可以直接 利用数据中心的网络结构(L2或者L3），不需要额外的NAT、隧道或者Overlay Network，没有额外的封包解包，能够节约CPU运算，提高网络效率。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.385Z",
+    "id": "90379139c95860cd",
+    "createdAt": "2026-04-24T06:47:57.388Z",
+    "updatedAt": "2026-04-24T06:47:57.388Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes共享存储的作用？",
+    "answer": "Kubernetes对于有状态的容器应用或者对数据需要持久化的应用，因此需要更加可靠的存储来保存应用产生的重要数据，以便容器应用在重建之后仍然可以使用之前的数据。因此需要使用共享存储。",
+    "category": "存储",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.388Z",
+    "id": "4697e0a2689f0d7d",
+    "createdAt": "2026-04-24T06:47:57.389Z",
+    "updatedAt": "2026-04-24T06:47:57.389Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes数据持久化的方式有哪些？",
+    "answer": "Kubernetes 通过数据持久化来持久化保存重要数据，常见的方式有： EmptyDir(空目录）：没有指定要挂载宿主机上的某个目录，直接由Pod内保部映射到宿主机上。类似 于docker中的manager volume。 场景： 只需要临时将数据保存在磁盘上，比如在合并/排序算法中； 作为两个容器的共享存储。 特性： 同个pod里面的不同容器，共享同一个持久化目录，当pod节点删除时，volume的数据也会被删除。 emptyDir的数据持久化的生命周期和使用的pod一致，一般是作为临时存储使用。 Hostpath：将宿主机上已存在的目录或文件挂载到容器内部。类似于docker中的bind mount挂载方式。 特性：增加了pod与节点之间的耦合。 PersistentVolume(简称PV）：如基于NFS服务的PV，也可以基于GFS的PV。它的作用是统一数据持久化目录，方便管理。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.389Z",
+    "id": "9f51df869c35bce2",
+    "createdAt": "2026-04-24T06:47:57.389Z",
+    "updatedAt": "2026-04-24T06:47:57.389Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes PV和PVC？",
+    "answer": "PV是对底层网络共享存储的抽象，将共享存储定义为一种“资源”。PVC则是用户对存储资源的一个“申请”。",
+    "category": "存储",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.390Z",
+    "id": "681426cabde42b97",
+    "createdAt": "2026-04-24T06:47:57.390Z",
+    "updatedAt": "2026-04-24T06:47:57.390Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes PV生命周期内的阶段？",
+    "answer": "某个PV在生命周期中可能处于以下4个阶段(Phaes）之一。 Available：可用状态，还未与某个PVC绑定。Bound：已与某个PVC绑定。 Released：绑定的PVC已经删除，资源已释放，但没有被集群回收。Failed：自动资源回收失败。",
+    "category": "存储",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.391Z",
+    "id": "cfc3cd9f81288161",
+    "createdAt": "2026-04-24T06:47:57.391Z",
+    "updatedAt": "2026-04-24T06:47:57.391Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes所支持的存储供应模式？",
+    "answer": "Kubernetes支持两种资源的存储供应模式：静态模式(Static）和动态模式(Dynamic）。 静态模式：集群管理员手工创建许多PV，在定义PV时需要将后端存储的特性进行设置。 动态模式：集群管理员无须手工创建PV，而是通过StorageClass的设置对后端存储进行描述，标记为某 种类型。此时要求PVC对存储的类型进行声明，系统将自动完成PV的创建及与PVC的绑定。",
+    "category": "存储",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.392Z",
+    "id": "55331734f2023e74",
+    "createdAt": "2026-04-24T06:47:57.392Z",
+    "updatedAt": "2026-04-24T06:47:57.392Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes CSI模型？",
+    "answer": "Kubernetes CSI是Kubernetes推出与容器对接的存储接口标准，存储提供方只需要基于标准接口进行存储插件的实现，就能使用Kubernetes的原生存储机制为容器提供存储服务。CSI使得存储提供方的代码能和Kubernetes代码彻底解耦，部署也与Kubernetes核心组件分离，显然，存储插件的开发由提供方 自行维护，就能为Kubernetes用户提供更多的存储功能，也更加安全可靠。 CSI包括CSI Controller和CSI Node： CSI Controller的主要功能是提供存储服务视角对存储资源和存储卷进行管理和操作。CSI Node的主要功能是对主机(Node）上的Volume进行管理和操作。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.393Z",
+    "id": "dcef47e8ac635ee5",
+    "createdAt": "2026-04-24T06:47:57.393Z",
+    "updatedAt": "2026-04-24T06:47:57.393Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Worker节点加入集群的过程？",
+    "answer": "通常需要对Worker节点进行扩容，从而将应用系统进行水平扩展。主要过程如下： 1、在该Node上安装Docker、kubelet和kube-proxy服务； 2、然后配置kubelet和kubeproxy的启动参数，将Master URL指定为当前Kubernetes集群Master 的地址，最后启动这些服务； 3、通过kubelet默认的自动注册机制，新的Worker将会自动加入现有的Kubernetes集群中； 4、Kubernetes Master在接受了新Worker的注册之后，会自动将其纳入当前集群的调度范围。",
+    "category": "架构组件",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.394Z",
+    "id": "694d37630456f86e",
+    "createdAt": "2026-04-24T06:47:57.394Z",
+    "updatedAt": "2026-04-24T06:47:57.394Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Pod如何实现对节点的资源控制？",
+    "answer": "Kubernetes集群里的节点提供的资源主要是计算资源，计算资源是可计量的能被申请、分配和使用的基础资源。当前Kubernetes集群中的计算资源主要包括CPU、GPU及Memory。CPU与Memory是被Pod 使用的，因此在配置Pod时可以通过参数CPU Request及Memory Request为其中的每个容器指定所需使用的CPU与Memory量，Kubernetes会根据Request的值去查找有足够资源的Node来调度此Pod。 通常，一个程序所使用的CPU与Memory是一个动态的量，确切地说，是一个范围，跟它的负载密切相关：负载增加时，CPU和Memory的使用量也会增加。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.395Z",
+    "id": "7c3ad626e5e77552",
+    "createdAt": "2026-04-24T06:47:57.395Z",
+    "updatedAt": "2026-04-24T06:47:57.395Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Requests和Limits如何影响Pod的调度？",
+    "answer": "当一个Pod创建成功时，Kubernetes调度器(Scheduler）会为该Pod选择一个节点来执行。对于每种 计算资源(CPU和Memory）而言，每个节点都有一个能用于运行Pod的最大容量值。调度器在调度 时，首先要确保调度后该节点上所有Pod的CPU和内存的Requests总和，不超过该节点能提供给Pod使 用的CPU和Memory的最大容量值。",
+    "category": "基础概念",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.396Z",
+    "id": "5a10fbe1ed8353cc",
+    "createdAt": "2026-04-24T06:47:57.396Z",
+    "updatedAt": "2026-04-24T06:47:57.396Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes Metric Service？",
+    "answer": "在Kubernetes从1.10版本后采用Metrics Server作为默认的性能数据采集和监控，主要用于提供核心指标(Core Metrics），包括Node、Pod的CPU和内存使用指标。 对其他自定义指标(Custom Metrics）的监控则由Prometheus等组件来完成。",
+    "category": "网络",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.397Z",
+    "id": "f8bc7308d2a96dd0",
+    "createdAt": "2026-04-24T06:47:57.397Z",
+    "updatedAt": "2026-04-24T06:47:57.397Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes中，如何使用EFK实现日志的统一管理？",
+    "answer": "在Kubernetes集群环境中，通常一个完整的应用或服务涉及组件过多，建议对日志系统进行集中化管理，通常采用EFK实现。 EFK是 Elasticsearch、Fluentd 和 Kibana 的组合，其各组件功能如下： Elasticsearch：是一个搜索引擎，负责存储日志并提供查询接口； Fluentd：负责从 Kubernetes 搜集日志，每个node节点上面的fluentd监控并收集该节点上面的系统日志，并将处理过后的日志信息发送给Elasticsearch； Kibana：提供了一个 Web GUI，用户可以浏览和搜索存储在 Elasticsearch 中的日志。 通过在每台node上部署一个以DaemonSet方式运行的fluentd来收集每台node上的日志。Fluentd将 docker日志目录/var/lib/docker/containers和/var/log目录挂载到Pod中，然后Pod会在node节点 的/var/log/pods目录中创建新的目录，可以区别不同的容器日志输出，该目录下有一个日志文件链接到/var/lib/docker/contianers目录下的容器日志输出。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.398Z",
+    "id": "15f4bed52f4f6cbe",
+    "createdAt": "2026-04-24T06:47:57.398Z",
+    "updatedAt": "2026-04-24T06:47:57.398Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes如何进行优雅的节点关机维护？",
+    "answer": "由于Kubernetes节点运行大量Pod，因此在进行关机维护之前，建议先使用kubectl drain将该节点的Pod进行驱逐，然后进行关机维护。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.399Z",
+    "id": "dea4b0625f06ea81",
+    "createdAt": "2026-04-24T06:47:57.399Z",
+    "updatedAt": "2026-04-24T06:47:57.399Z"
+  },
+  {
+    "source": "github",
+    "question": "Kubernetes集群联邦？",
+    "answer": "Kubernetes集群联邦可以将多个Kubernetes集群作为一个集群进行管理。因此，可以在一个数据中心/ 云中创建多个Kubernetes集群，并使用集群联邦在一个地方控制/管理所有集群。",
+    "category": "架构组件",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.400Z",
+    "id": "82a40bbef5aa5390",
+    "createdAt": "2026-04-24T06:47:57.400Z",
+    "updatedAt": "2026-04-24T06:47:57.400Z"
+  },
+  {
+    "source": "github",
+    "question": "Helm及其优势？",
+    "answer": "Helm 是 Kubernetes 的软件包管理工具。类似 Ubuntu 中使用的apt、Centos中使用的yum 或者 Python中的 pip 一样。 Helm能够将一组K8S资源打包统一管理, 是查找、共享和使用为Kubernetes构建的软件的最佳方式。 Helm中通常每个包称为一个Chart，一个Chart是一个目录(一般情况下会将目录进行打包压缩，形成name-version.tgz格式的单一文件，方便传输和存储）。 Helm优势 在 Kubernetes中部署一个可以使用的应用，需要涉及到很多的 Kubernetes 资源的共同协作。使用 helm则具有如下优势： 统一管理、配置和更新这些分散的 k8s 的应用资源文件； 分发和复用一套应用模板； 将应用的一系列资源当做一个软件包管理。 对于应用发布者而言，可以通过 Helm 打包应用、管理应用依赖关系、管理应用版本并发布应用到软件仓库。 对于使用者而言，使用 Helm 后不用需要编写复杂的应用部署文件，可以以简单的方式在 Kubernetes 上查找、安装、升级、回滚、卸载应用程序。",
+    "category": "Kubernetes",
+    "difficulty": "中级",
+    "tags": [
+      "kubernetes",
+      "csview"
+    ],
+    "sourceUrl": "https://github.com/zijing2333/CSView",
+    "syncAt": "2026-04-24T06:47:57.401Z",
+    "id": "fd2111f0338eca42",
+    "createdAt": "2026-04-24T06:47:57.401Z",
+    "updatedAt": "2026-04-24T06:47:57.401Z"
   }
 ]

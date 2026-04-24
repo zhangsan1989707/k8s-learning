@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "source": "manual",
+    "category": "基础概念",
+    "difficulty": "初级",
+    "question": "什么是 Kubernetes？它主要解决什么问题？",
+    "answer": "Kubernetes 是一个开源的容器编排平台，主要解决：\n1. 容器自动化部署和扩缩容\n2. 服务发现和负载均衡\n3. 自我修复（自动重启失败的容器）\n4. 配置管理和密钥管理\n5. 存储编排",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "2",
+    "source": "manual",
+    "category": "基础概念",
+    "difficulty": "初级",
+    "question": "Pod 和 Container 的区别是什么？",
+    "answer": "Pod 是 Kubernetes 的最小调度单位，一个 Pod 可以包含一个或多个容器。\n\n关键区别：\n- Container：独立的容器实例\n- Pod：包含一个或多个共享网络和存储的容器组\n- 同一 Pod 内的容器共享相同的 IP 和端口空间，可通过 localhost 互相通信",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "3",
+    "source": "manual",
+    "category": "基础概念",
+    "difficulty": "初级",
+    "question": "什么是 Namespace？什么时候需要使用多个 Namespace？",
+    "answer": "Namespace 用于将集群资源划分为多个虚拟集群。\n\n使用场景：\n- 不同环境隔离（dev/staging/prod）\n- 不同团队或项目隔离\n- 资源配额管理\n- 访问权限控制",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "4",
+    "source": "manual",
+    "category": "架构组件",
+    "difficulty": "中级",
+    "question": "Kubernetes Master 节点包含哪些组件？各自的作用是什么？",
+    "answer": "Master 节点组件：\n\n1. kube-apiserver：集群的统一入口，提供 REST API\n2. etcd：分布式键值存储，保存集群所有数据\n3. kube-scheduler：负责 Pod 调度，选择最佳节点\n4. kube-controller-manager：运行控制器进程（Replication、Node、Endpoints 等）\n5. cloud-controller-manager：与云提供商交互（可选）",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "5",
+    "source": "manual",
+    "category": "架构组件",
+    "difficulty": "中级",
+    "question": "Worker 节点包含哪些组件？各自的作用是什么？",
+    "answer": "Worker 节点组件：\n\n1. kubelet：代理，负责管理 Pod 生命周期\n2. kube-proxy：网络代理，维护网络规则\n3. container runtime：容器运行时（Docker/containerd）",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "6",
+    "source": "manual",
+    "category": "架构组件",
+    "difficulty": "高级",
+    "question": "详细描述一个 Pod 的创建过程",
+    "answer": "Pod 创建流程：\n\n1. 用户通过 kubectl 或 API 发起创建请求\n2. kube-apiserver 验证请求并写入 etcd\n3. Scheduler 监听到新的 Pod，通过算法选择最优节点\n4. kubelet 监听到分配给自己的 Pod，开始创建\n5. kubelet 调用 container runtime 拉取镜像并启动容器\n6. kubelet 更新 Pod 状态到 apiserver",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "7",
+    "source": "manual",
+    "category": "网络",
+    "difficulty": "中级",
+    "question": "Kubernetes Service 的类型有哪些？分别适用于什么场景？",
+    "answer": "Service 类型：\n\n1. ClusterIP（默认）：集群内部可访问的虚拟 IP\n2. NodePort：通过节点端口暴露服务\n3. LoadBalancer：使用云厂商负载均衡器\n4. ExternalName：通过 DNS 名称映射服务\n5. Headless：无头服务，直接返回 Pod IP",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "8",
+    "source": "manual",
+    "category": "网络",
+    "difficulty": "高级",
+    "question": "Ingress 和 Ingress Controller 的区别是什么？",
+    "answer": "Ingress：Kubernetes 资源对象，定义 HTTP/S 路由规则\n\nIngress Controller：实现这些规则的组件（如 nginx-ingress、traefik）\n\n关系：Ingress 是声明式配置，Ingress Controller 是实际执行者",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "9",
+    "source": "manual",
+    "category": "存储",
+    "difficulty": "中级",
+    "question": "PersistentVolume (PV) 和 PersistentVolumeClaim (PVC) 的区别？",
+    "answer": "PV：集群管理员创建的存储资源，是集群层面的资源\n\nPVC：用户对存储的请求，是命名空间级别的资源\n\n关系：PVC 绑定 PV，就像 Pod 消耗 Node 资源一样",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "10",
+    "source": "manual",
+    "category": "存储",
+    "difficulty": "高级",
+    "question": "StorageClass 在 Kubernetes 存储体系中扮演什么角色？",
+    "answer": "StorageClass 提供动态存储供应机制：\n\n1. 管理员创建 StorageClass，定义存储类型和 provisioner\n2. 用户创建 PVC 时指定 StorageClass\n3. 系统自动创建 PV，无需手动预置\n4. 支持云厂商存储（GCE、AWS、Azure）",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "11",
+    "source": "manual",
+    "category": "生产实践",
+    "difficulty": "中级",
+    "question": "如何保证 Kubernetes 集群的高可用？",
+    "answer": "高可用策略：\n\n1. Master 节点：至少 3 个节点，etcd 集群部署\n2. Worker 节点：跨可用区部署\n3. 应用层：使用 ReplicaSet/Deployment 保证多副本\n4. 入口层：多 Ingress Controller 实例\n5. 数据层：数据库主从跨节点部署",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "12",
+    "source": "manual",
+    "category": "生产实践",
+    "difficulty": "高级",
+    "question": "生产环境如何进行 Kubernetes 版本升级？",
+    "answer": "升级策略：\n\n1. 先升级 Master 节点\n2. 然后升级 Worker 节点（使用 pod-disruption-budget）\n3. 使用逐节点排空（kubectl drain）\n4. 升级顺序：etcd → kube-apiserver → controller-manager → scheduler → kubelet\n5. 建议使用托管服务（EKS/GKE）减少升级复杂性",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "13",
+    "source": "manual",
+    "category": "生产实践",
+    "difficulty": "高级",
+    "question": "如何监控 Kubernetes 集群的生产环境状态？",
+    "answer": "监控方案：\n\n1. Metrics Server：收集资源指标\n2. Prometheus + Grafana：监控和可视化\n3. kube-state-metrics：集群对象状态\n4. Node Exporter：节点级别指标\n5. 日志：EFK（Elasticsearch/Fluentd/Kibana）或 Loki\n6. 告警：Prometheus AlertManager",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "14",
+    "source": "manual",
+    "category": "安全",
+    "difficulty": "中级",
+    "question": "RBAC 在 Kubernetes 中是如何工作的？",
+    "answer": "RBAC（基于角色的访问控制）：\n\n1. Role/ClusterRole：定义权限规则\n2. RoleBinding/ClusterRoleBinding：绑定到用户/组/SA\n3. 权限：get、list、watch、create、update、delete\n4. Role 作用于命名空间，ClusterRole 作用于集群级别",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  },
+  {
+    "id": "15",
+    "source": "manual",
+    "category": "安全",
+    "difficulty": "高级",
+    "question": "如何限制容器的资源使用？防止恶意占用资源？",
+    "answer": "资源限制方案：\n\n1. ResourceQuota：命名空间级别的资源总量限制\n2. LimitRange：单个容器默认限制\n3. Pod 级别设置 resources.limits/requests\n4. 使用 LimitRanger admission 控制器强制执行\n5. 设置 Pod 中断预算（PodDisruptionBudget）",
+    "tags": [
+      "kubernetes"
+    ],
+    "sourceUrl": null,
+    "createdAt": "2026-04-24T04:53:22.980Z",
+    "updatedAt": "2026-04-24T04:53:22.980Z",
+    "syncAt": null
+  }
+]

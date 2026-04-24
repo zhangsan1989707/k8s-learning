@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import db, { initializeData } from "@/lib/db";
-
-// Initialize data on first load
-initializeData();
+import db from "@/lib/db";
 
 export async function GET(request: NextRequest) {
   try {

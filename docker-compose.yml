@@ -7,6 +7,10 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - DATABASE_URL=postgresql://k8s_learning:password@db:5432/k8s_learning
+    depends_on:
+      db:
+        condition: service_healthy
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
@@ -15,37 +19,22 @@ services:
       retries: 3
       start_period: 10s
 
-  # PostgreSQL 数据库服务（未来迁移使用）
-  # db:
-  #   image: postgres:16-alpine
-  #   environment:
-  #     - POSTGRES_DB=k8s_learning
-  #     - POSTGRES_USER=k8s_learning
-  #     - POSTGRES_PASSWORD=password
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data
-  #   ports:
-  #     - "5432:5432"
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "pg_isready -U k8s_learning"]
-  #     interval: 10s
-  #     timeout: 5s
-  #     retries: 5
-  #     start_period: 10s
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_DB=k8s_learning
+      - POSTGRES_USER=k8s_learning
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U k8s_learning"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
-  # pgAdmin 数据库管理工具（未来迁移使用）
-  # pgadmin:
-  #   image: dpage/pgadmin4:latest
-  #   environment:
-  #     - PGADMIN_DEFAULT_EMAIL=admin@k8s-learning.local
-  #     - PGADMIN_DEFAULT_PASSWORD=admin
-  #   ports:
-  #     - "5050:80"
-  #   volumes:
-  #     - pgadmin_data:/var/lib/pgadmin
-  #   depends_on:
-  #     - db
-
-# volumes:
-#   postgres_data:
-#   pgadmin_data:
+volumes:
+  postgres_data:
